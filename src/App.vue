@@ -1,66 +1,22 @@
 <template>
   <div id="app">
-    <nav-bar>
-      <div slot="left" class="left">
-          <img src="./assets/img/navbar/menu.svg">
-      </div>
-      <div slot="center" class="center">
-        <div class="center_item" v-for="(attr,index) in navbar_center" :key="attr" @click="itemClick(index)"
-            :class='{chooseItem:index===isChoose}'>{{attr}}</div>
-      </div>
-      <div slot="right">
-          <img src="./assets/img/navbar/search.svg">
-      </div>
-    </nav-bar>
+    <main-tab-bar/>
   </div>
 </template>
 
 <script>
 
-import NavBar from './components/common/navbar/NavBar'
+import MainTabBar from 'components/content/maintabbar/MainTabBar'
 
 export default {
   name: 'App',
   components: {
-    NavBar,
+    MainTabBar,
   },
-  data() {
-    return {
-      navbar_center:['我的','发现','云村','视频'],
-      isChoose: 0,
-    }
-  },
-  methods: {
-    itemClick(index){
-      console.log(index)
-      this.isChoose = index
-    }
-  },
+  
 }
 </script>
 
 <style scoped>
-  @import './assets/css/normalize.css';
-  .center{
-    display: flex;
-    padding: 0px 40px;
-  }
-  .center_item{
-    flex:1;
-  }
-  .right img{
-    width: 16px;
-    height: 16px;
-    margin-top: 13px;
-  }
-  .left img{
-    width: 16px;
-    height: 16px;
-    margin-top: 13px;
-  }
-  .chooseItem{
-    font-family: '黑体';
-    font:800;
-    font-size: 20px;
-  }
+  @import 'assets/css/base.css';
 </style>

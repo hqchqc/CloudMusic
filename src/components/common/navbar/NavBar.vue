@@ -1,20 +1,21 @@
 <template>
     <div id="navbar">
         <div class='left'>
-            <slot name="left"/>
+            <slot name="left"></slot>
         </div>
         <div class="center">
-            <slot name="center"/>
+            <slot name="center"></slot>
         </div>
         <div class="right">
-            <slot name="right"/>
+            <slot name="right"></slot>
         </div>
     </div>
 </template>
 
 <script>
+
 export default {
-    name: 'NavBar'
+    name: 'NavBar',
 }
 </script>
 
@@ -24,9 +25,6 @@ export default {
         line-height: 43px;
         display: flex;
         text-align: center;
-        font-family: '宋体';
-        
-
         background-color: #fff;
     }
     .left,.right{
