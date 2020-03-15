@@ -1,3 +1,4 @@
+// 路由的使用
 // 1.导入路由对象
 import Vue from 'vue'
 import vueRouter from 'vue-router'

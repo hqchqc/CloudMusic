@@ -57,7 +57,7 @@ export default {
   margin-top: 13px;
 }
 .chooseItem {
-  font-size: 20px;
+  font-size: 18px;
   color: black;
 }
 </style>
