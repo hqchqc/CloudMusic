@@ -24,13 +24,15 @@ export default {
   data() {
     return {
       navbar_center: ["我的", "发现", "云村", "视频"],
-      isChoose: 0
+      path:['/profile','/find','/cloud_village','/video'],
+      isChoose: 1
     };
   },
   methods: {
     itemClick(index) {
       console.log(index);
       this.isChoose = index;
+      this.$router.push(this.path[index])
     }
   }
 };
