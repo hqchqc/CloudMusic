@@ -1,17 +1,24 @@
 <template>
-    <div>
+    <div id="find">
         <find-swiper :banner='banner'/>
+        <find-recommend/>
+        <find-welcome/>
     </div>
 </template>
 
 <script>
 import FindSwiper from './childFinds/FindSwiper'
+import FindRecommend from './childFinds/FindRecommend'
+import FindWelcome from './childFinds/FindWelcome'
+
 import {getHomeBanner} from 'network/home'
 
 export default {
     name: 'Find',
     components:{
-        FindSwiper
+        FindSwiper,
+        FindRecommend,
+        FindWelcome
     },
     data(){
         return {

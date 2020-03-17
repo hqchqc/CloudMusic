@@ -20,6 +20,12 @@ const profile = ()=> import('views/Profile/Profile.vue')
 const cloud_village = ()=> import('views/CloudVillage/CloudVillage.vue')
 const video = ()=> import('views/Video/Video.vue')
 
+const recommend = ()=>import('views/Find/childViews/Recommend.vue')
+const songlist = ()=>import('views/Find/childViews/SongList.vue')
+const rank = ()=>import('views/Find/childViews/Rank.vue')
+const radio = ()=>import('views/Find/childViews/Radio.vue')
+const online = ()=>import('views/Find/childViews/OnLine.vue')
+
 // 3.1 配置路由映射
 const routes = [
     {
@@ -27,19 +33,39 @@ const routes = [
         redirect: '/find'   //重定向到 find
     },
     {
-        path: '/find',  //发现
-        component: find
+        path: '/find',  //1.发现
+        component: find,
     },
     {
-        path: '/profile',    //我的
+        path: '/recommend',  //发现-->每日推荐
+        component: recommend
+    },
+    {
+        path: '/songlist',   //发现-->歌单
+        component: songlist
+    },
+    {
+        path: '/rank',   //发现-->排行榜
+        component: rank
+    },
+    {
+        path: '/radio',  //发现-->电台
+        component: radio
+    },
+    {
+        path: '/online', //发现-->直播
+        component: online
+    },
+    {
+        path: '/profile',    //2.我的
         component: profile
     },
     {
-        path: '/cloud_village',  //云村
+        path: '/cloud_village',  //3.云村
         component: cloud_village
     },
     {
-        path: '/video',  //视频
+        path: '/video',  //4.视频
         component: video
     }
 ]

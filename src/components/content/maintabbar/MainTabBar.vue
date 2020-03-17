@@ -1,14 +1,14 @@
 <template>
     <nav-bar>
       <div slot="left" class="left">
-        <img src="~assets/img/navbar/menu.svg" />
+        <img src="~assets/img/find/navbar/menu.svg" />
       </div>
       <div slot="center" class="center">
         <div class="center_item" v-for="(attr,index) in navbar_center" :key="attr" @click="itemClick(index)"
           :class="{chooseItem:index===isChoose}">{{attr}}</div>
       </div>
       <div slot="right">
-        <img src="~assets/img/navbar/search.svg" />
+        <img src="~assets/img/find/navbar/search.svg" />
       </div>
     </nav-bar>
 </template>
