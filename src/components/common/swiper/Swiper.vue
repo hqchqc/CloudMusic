@@ -229,14 +229,14 @@
 
   .indi-item {
     box-sizing: border-box;
-    width: 8px;
-    height: 8px;
-    border-radius: 4px;
-    background-color: #fff;
-    line-height: 8px;
+    width: 4px;
+    height: 4px;
+    border-radius: 2px;
+    background-color:#808080;
+    line-height: 4px;
     text-align: center;
     font-size: 12px;
-    margin: 0 5px;
+    margin: 0 3px;
   }
 
   .indi-item.active {

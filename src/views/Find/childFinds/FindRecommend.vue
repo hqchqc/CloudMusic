@@ -39,27 +39,29 @@ export default {
         display: flex;
         text-align: center;
         margin-top: 12px;   
-        margin-bottom: 12px;  
+        margin-bottom: 12px; 
+        margin: 12px 15px; 
+
     }
     .recommendItem{
         flex: 1;
     }   
     .box{
         flex: 1;
-        width: 42px;
-        height: 42px;
+        width: 35px;
+        height: 35px;
         background-color: #FF1D12;
         border-radius: 50%;
-        margin: 0px auto
+        margin: 0px auto;
     }
     .box_font{
         margin-top: 6px;
-        font-size: 12px;
+        font-size: 10px;
         font-weight: bolder;
     }
     .box img{
-        width: 21px;
-        height: 21px;
-        margin-top: 10px;
+        width: 18px;
+        height: 18px;
+        margin-top: 9px;
     }
 </style>

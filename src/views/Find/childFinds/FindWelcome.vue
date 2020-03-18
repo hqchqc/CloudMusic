@@ -29,25 +29,28 @@ export default {
         margin: 25px auto;
     }
     .welcome_title {
+        font-size: 13px;
         font-weight: bold;
         padding-top: 10px;
     }
     .welcome_content{
         display: flex;
+        margin: 10px;
         padding-bottom: 5px;
+        
     }
     .content_left{
-        flex: 1;
+        flex: 0.7;
     }
     .content_left img{
-        width: 260px;
+        margin-right: 10px;
+        width: 100%;
     }
     .content_right{
-        flex: 1;
+        flex: 0.3;
     }
     .content_right img{
-        width: 92px;
-        margin-top: 9px;
+        width: 85%;
+        margin-right: -15px;
     }
-
 </style>

@@ -6,14 +6,14 @@
                 <p class="left_bottom">为你精挑细选</p>
             </div>
             <div class="top_right" @click="loadMore">
-                <span>查看更多</span>
+                <p>查看更多</p>
             </div>
         </div>
         <div class="bottom">
-            <div class="bottom_item">
-                <div class="pic" v-for="(attr,index) in recommendList" :key="index" @click="loadList(index)">
+            <div class="bottom_item" v-for="(attr,index) in recommendList" :key="index" @click="loadList(index)">
+                <div class="pic">
                     <img :src="attr.picUrl">
-                    <span>{{attr.name}}</span>
+                    <p>{{attr.name}}</p>
                 </div>
             </div>
         </div>
@@ -47,10 +47,10 @@ export default {
 
 <style scoped>
     .top{
-        position: relative;
-    }
-    .left_top{
         font-size: 12px;
+        display: flex;
+        justify-content: space-between;
+        margin: 0px 10px;
     }
     .left_bottom{
         font-size: 15px;
@@ -58,40 +58,31 @@ export default {
         margin-top: 5px;
     }
     .top_right{
-        float: right;
-        background-color: #fff;
-        border: 1px solid #000;
-        border-radius: 15px;
+        width: 55px;
+        height: 19px;
+        border: 0.4px solid #909090;
+        border-radius: 10px;
         font-size: 12px;
+        font-weight: 700;
         padding: 3px;
-        margin-right: 15px;
-        margin-top: 13px;
-    }
-    .top_left{
-        position: absolute;
-        margin-left: 15px;
+        margin-top: 17px;
     }
     .bottom{
-        position: absolute;
-        margin-top: 40px;
-        margin-left: 10px;
+        display: flex;
+        margin-top: 10px;
+        font-size: 10px;
+        overflow: scroll;
     }
     .bottom_item{
-        display: flex;
-        width: 100%;
-        justify-content:space-between;
-        overflow: scroll;
-        max-width: 365px;
-    }
-    .pic{
         flex: 1;
-        margin: 5px;
-        font-size: 12px;
+        margin-left: 10px;
+        margin-right: -8px;
     }
     .pic img{
         width: 100px;
         height: 100px;
         border-radius: 5px;
+        margin-right: 10px;
     }
     
 </style>

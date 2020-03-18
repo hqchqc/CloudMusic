@@ -41,7 +41,8 @@ export default {
 <style scoped>
 .center {
   display: flex;
-  padding: 0px 40px;
+  padding: 0px 30px;
+  font-size: 12px;
 }
 .center_item {
   flex: 1;
@@ -57,7 +58,7 @@ export default {
   margin-top: 13px;
 }
 .chooseItem {
-  font-size: 18px;
+  font-size: 15px;
   color: black;
 }
 </style>

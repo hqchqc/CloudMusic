@@ -1,9 +1,11 @@
 <template>
-    <swiper>
-        <swiper-item v-for="(item,index) in banner" :key="index">
-            <img :src="item.pic">   
-        </swiper-item>
-    </swiper>
+    <div class="findSwiper">
+        <swiper>
+            <swiper-item v-for="(item,index) in banner" :key="index">
+                <img :src="item.pic">   
+            </swiper-item>
+        </swiper>
+    </div>
 </template>
 
 <script>
@@ -26,5 +28,7 @@ export default {
 </script>
 
 <style scoped>
-
+    .findSwiper{
+        
+    }
 </style>
