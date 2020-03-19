@@ -1,6 +1,6 @@
 <template>
-    <div id="navbar">
-        <div class='left'>
+    <div class="title-bar">
+        <div class="left">
             <slot name="left"></slot>
         </div>
         <div class="center">
@@ -13,23 +13,19 @@
 </template>
 
 <script>
-
 export default {
-    name: 'NavBar',
+    name: 'TitleBar'
 }
 </script>
 
 <style scoped>
-    #navbar{
+    .title-bar{
         height: 43px;
         line-height: 43px;
         display: flex;
         text-align: center;
     }
-    .left,.right{
-        width: 55px;
-    }
-    .center{
-        flex: 1;     
+    .left .center .right{
+        flex: 1;
     }
 </style>

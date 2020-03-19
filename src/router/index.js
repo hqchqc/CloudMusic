@@ -22,7 +22,7 @@ const video = ()=> import('views/Video/Video.vue')
 
 const recommend = ()=>import('views/Find/childViews/Recommend.vue')
 const songlist = ()=>import('views/Find/childViews/SongList.vue')
-const rank = ()=>import('views/Find/childViews/Rank.vue')
+const rank = ()=>import('views/Rank/Rank.vue')
 const radio = ()=>import('views/Find/childViews/Radio.vue')
 const online = ()=>import('views/Find/childViews/OnLine.vue')
 

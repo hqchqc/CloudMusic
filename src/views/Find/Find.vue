@@ -3,7 +3,7 @@
         <find-swiper :banner='banner'/>
         <find-recommend/>
         <find-welcome/>
-        <find-recommend-list :recommendList='recommendList'/>
+        <recommend :recommendList='recommendList' :font_left='getContent'/>
     </div>
 </template>
 
@@ -11,7 +11,8 @@
 import FindSwiper from './childFinds/FindSwiper'
 import FindRecommend from './childFinds/FindRecommend'
 import FindWelcome from './childFinds/FindWelcome'
-import FindRecommendList from './childFinds/FindRecommendList'
+
+import Recommend from 'components/content/recommend/Recommend'
 
 import {getFindBanner,getRecommendList} from 'network/find'
 
@@ -21,12 +22,17 @@ export default {
         FindSwiper,
         FindRecommend,
         FindWelcome,
-        FindRecommendList,
+        Recommend
     },
     data(){
         return {
             banner: [],
-            recommendList: []
+            recommendList: [],
+        }
+    },
+    computed:{
+        getContent(){
+            return ['推荐歌单','为你精挑细选']
         }
     },
     created(){
