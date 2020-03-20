@@ -3,7 +3,7 @@
         <title-bar>
             <div slot="left" class="left"  >
                 <img src="~assets/img/common/back.svg" @click="back()">
-                <div class="left-font">排行榜</div>
+                <div class="left-font">电台</div>
             </div>
         </title-bar>       
     </div>

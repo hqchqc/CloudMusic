@@ -5,14 +5,15 @@
         </div>
         <div class="list">
             <ul>
-                <li v-for="(attr,index) in rankdata" :key="index">
+                <li v-for="(attr,index) in rankOfficial" :key="index">
                     <div class="left">
-                        <img :src="attr.coverImgUrl">
+                        <img :src="attr.Url">
+                        <span class="Frequency">{{attr.Frequency}}</span>
                     </div>
                     <div class="right">
-                        <p v-for="(attr,index) in attr.tracks" :key="index">
+                        <p v-for="(attr,index) in attr.Content" :key="index">
                             {{index + 1 + '.'}}
-                            
+
                             {{attr.first}}
                             -
                             {{attr.second}}
@@ -28,7 +29,7 @@
 export default {
     name: 'RankOfficial',
     props:{
-        rankdata:{
+        rankOfficial:{
             type: Array,
             default(){
                 return []
@@ -67,5 +68,15 @@ export default {
         width: 73px;
         border: 1px solid #fff;
         border-radius: 5px;
+    }
+    .left{
+        position: relative;
+    }
+    .Frequency{
+        position: absolute;
+        bottom: 5px;
+        left: 6px;
+        font-size: 5px;
+        color: #fff;
     }
 </style>

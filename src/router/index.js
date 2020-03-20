@@ -23,7 +23,7 @@ const video = ()=> import('views/Video/Video.vue')
 const recommend = ()=>import('views/Find/childViews/Recommend.vue')
 const songlist = ()=>import('views/Find/childViews/SongList.vue')
 const rank = ()=>import('views/Rank/Rank.vue')
-const radio = ()=>import('views/Find/childViews/Radio.vue')
+const radio = ()=>import('views/Radio/Radio.vue')
 const online = ()=>import('views/Find/childViews/OnLine.vue')
 
 // 3.1 配置路由映射

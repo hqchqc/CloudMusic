@@ -1,5 +1,5 @@
 <template>
-    <div class="findSwiper">
+    <div class="radioSwiper">
         <swiper>
             <swiper-item v-for="(item,index) in banner" :key="index">
                 <img :src="item.pic">   
@@ -11,13 +11,13 @@
 <script>
 import {Swiper,SwiperItem} from 'components/common/swiper/index'
 export default {
-    name: 'FindSwiper',
+    name: 'RadioSwiper',
     components:{
         Swiper,
         SwiperItem
     },
     props:{
-        banner:{
+        banner: {
             type: Array,
             default(){
                 return []
