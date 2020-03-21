@@ -14,15 +14,14 @@
 
 <script>
 export default {
-    name: 'FindRecommend',
+    name: 'RadioRecommend',
     data(){
         return {
             recommend:[
-                {font:'每日推荐',src:require('assets/img/find/command/command.svg'),path:'/recommend'},
-                {font:'歌单',src:require('assets/img/find/command/songlist.svg'),path:'/songlist'},
-                {font:'排行榜',src:require('assets/img/find/command/rank.svg'),path:'/rank'},
-                {font:'电台',src:require('assets/img/find/command/radio.svg'),path:'/radio'},
-                {font:'直播',src:require('assets/img/find/command/online.svg'),path:'/online'},
+                {font:'电台分类',src:require('assets/img/radio/classify.svg'),path:''},
+                {font:'电台排行',src:require('assets/img/radio/rank.svg'),path:''},
+                {font:'付费精品',src:require('assets/img/radio/crown.svg'),path:''},
+                {font:'主播学院',src:require('assets/img/radio/study.svg'),path:''},
             ]
         }
     },
@@ -56,12 +55,12 @@ export default {
     }
     .box_font{
         margin-top: 6px;
-        font-size: 10px;
+        font-size: 12px;
         font-weight: bolder;
     }
     .box img{
-        width: 18px;
-        height: 18px;
-        margin-top: 9px;
+        width: 20px;
+        height: 20px;
+        margin-top: 7px;
     }
 </style>
