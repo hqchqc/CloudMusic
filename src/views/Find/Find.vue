@@ -4,7 +4,7 @@
         <find-recommend/>
         <find-welcome/>
         <recommend :recommendList='recommendList' :font_left='getContent'/>
-        <song-recommend :songList='songList' :font_left='getSongContent'/>
+        <song-recommend :songList='songList' :loading = 'loading' :font_left='getSongContent'/>
     </div>
 </template>
 
@@ -31,7 +31,8 @@ export default {
         return {
             banner: [],
             recommendList: [],
-            songList: []
+            songList: [],
+            loading:false
         }
     },
     computed:{
@@ -48,19 +49,20 @@ export default {
         getFindBanner().then(res=>{
             this.banner = res.data.banners
         })
-        // 2.推荐歌单数据
+        // 2.推荐歌单数据(所有)
         getRecommendList().then(res=>{
             this.recommendList = res.data.result
         })
-        // 3.推荐歌曲数据
+        // 3.推荐民谣歌单的歌曲
         getRecommendSong().then(res=>{
-            var SongList = new SongItem(res.data.playlists).then(res=>{
-                // console.log(res)
-                this.songList = res.data.playlist.tracks.slice(0,9)
-                
-                console.log(this.songList)
-            })
-
+            var list = {}
+            var data = res.data.playlist.tracks.slice(0,10)
+            for(var attr of data){
+                list = {picUrl: attr.al.picUrl,author: attr.ar[0].name,name: attr.name}
+                this.songList.push(list)
+            }
+            this.loading = true
+            console.log(this.songList)
         })
     }
 }
