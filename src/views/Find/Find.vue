@@ -5,6 +5,8 @@
         <find-welcome/>
         <recommend :recommendList='recommendList' :font_left='getContent'/>
         <song-recommend :songList='songList' :loading = 'loading' :font_left='getSongContent'/>
+        <recommend :recommendList='ActionrecommendList' :font_left='getActionContent'/>
+        <recommend :recommendList='RadioRecommendList' :font_left='getRadioContent'/>
     </div>
 </template>
 
@@ -16,7 +18,7 @@ import FindWelcome from './childFinds/FindWelcome'
 import Recommend from 'components/content/recommend/Recommend'
 import SongRecommend from 'components/content/songrecommend/SongRecommend'
 
-import {getFindBanner,getRecommendList,getRecommendSong,SongItem} from 'network/find'
+import {getFindBanner,getRecommendList,getRecommendSong,SongItem,getActionRecommend,getRadioRecommend} from 'network/find'
 
 export default {
     name: 'Find',
@@ -32,7 +34,9 @@ export default {
             banner: [],
             recommendList: [],
             songList: [],
-            loading:false
+            loading:false,
+            ActionrecommendList:[],
+            RadioRecommendList: []
         }
     },
     computed:{
@@ -41,6 +45,12 @@ export default {
         },
         getSongContent(){
             return ['风格推荐','你与民谣 我与欢喜']
+        },
+        getActionContent(){
+            return ['场景推荐','午安 来杯音乐红茶']
+        },
+        getRadioContent(){
+            return ['电台推荐','陌生人，送个故事给你']
         }
     },
     created(){
@@ -62,7 +72,14 @@ export default {
                 this.songList.push(list)
             }
             this.loading = true
-            console.log(this.songList)
+        })
+        // 4.场景推荐的歌单
+        getActionRecommend().then(res=>{
+            this.ActionrecommendList = res.data.playlists
+        })
+        // 5.电台推荐
+        getRadioRecommend().then(res=>{
+            this.RadioRecommendList = res.data.djRadios
         })
     }
 }

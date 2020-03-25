@@ -17,3 +17,15 @@ export function getRecommendSong(){
         url: '/playlist/detail?id=2413406218'
     })
 }
+
+export function getActionRecommend(){
+    return request({
+        url: '/top/playlist?limit=6&order=hot&cat=午休'
+    })
+}
+
+export function getRadioRecommend(){
+    return request({
+        url: '/dj/recommend?limit=6'
+    })
+}

@@ -1,6 +1,6 @@
 <template>
     <div id='rank'>
-        <rank-nav-bar class="rank-nav"/>
+        <rank-nav-bar/>
         <rank-official :rankOfficial="rankOfficial"/>
         <rank-List :listItem="rankCommend"><p slot="font">推荐榜</p></rank-List>
         <rank-List :listItem="rankWorld"><p slot="font">全球榜</p></rank-List>
@@ -24,6 +24,7 @@ export default {
     },
     data(){
         return {
+            id: null,
             rankOfficial: [],
             rankCommend: [],
             rankWorld: [],
@@ -51,9 +52,5 @@ export default {
 </script>
 
 <style scoped>
-    .rank-nav{
-        position: relative;
-        margin-top: -43px;
-        background-color:#fff;
-    }
+    
 </style>

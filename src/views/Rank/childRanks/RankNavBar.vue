@@ -1,5 +1,5 @@
 <template>
-    <div id="RankNavBar">
+    <div id="RankNavBar" class='rank-nav'> 
         <title-bar>
             <div slot="left" class="left"  >
                 <img src="~assets/img/common/back.svg" @click="back()">
@@ -25,6 +25,11 @@ export default {
 </script>
 
 <style scoped>
+    .rank-nav{
+        position: relative;
+        margin-top: -43px;
+        background-color:#fff;
+    }
     .left{
         margin-left: 10px;
     }

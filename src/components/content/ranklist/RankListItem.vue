@@ -29,9 +29,11 @@ export default {
         float: left;
         margin-right: 8px;
         margin-top: 10px;
+        width: 113px;
+        
     }
     .listItem img{
-        width: 125px;
+        width: 110px;
         border: 1px solid #fff;
         border-radius: 5px;
     }
@@ -44,5 +46,10 @@ export default {
         left: 8px;
         font-size: 10px;
         color: #fff;
+    }
+    .content{
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 </style>

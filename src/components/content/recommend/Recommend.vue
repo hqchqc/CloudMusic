@@ -8,7 +8,7 @@
             <div slot="bottom" class="bottom">
                 <div class="bottom_item" v-for="(attr,index) in recommendList" :key="index" @click="loadList(index)">
                     <div class="pic">                   
-                        <img :src="attr.picUrl">
+                        <img :src=" attr.picUrl==null ? attr.coverImgUrl:attr.picUrl">
                         <p>{{attr.name}}</p>                    
                     </div>
                 </div>
@@ -48,6 +48,9 @@ export default {
 </script>
 
 <style scoped>
+    #recommend{
+        margin-top: 20px;
+    }
     .left_bottom{
         font-size: 15px;
         font-weight: bold;

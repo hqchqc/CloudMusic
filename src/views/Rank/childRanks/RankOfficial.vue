@@ -5,7 +5,7 @@
         </div>
         <div class="list">
             <ul>
-                <li v-for="(attr,index) in rankOfficial" :key="index">
+                <li v-for="(attr,index) in rankOfficial" :key="index" @click="officialClick(index)">
                     <div class="left">
                         <img :src="attr.Url">
                         <span class="Frequency">{{attr.Frequency}}</span>
@@ -28,12 +28,22 @@
 <script>
 export default {
     name: 'RankOfficial',
+    data() {
+        return {
+            idx: [3,0,2,1]
+        }
+    },
     props:{
         rankOfficial:{
             type: Array,
             default(){
                 return []
             }
+        }
+    },
+    methods:{
+        officialClick(index){
+            this.$router.push('/rank/' + this.idx[index])
         }
     }
 }
