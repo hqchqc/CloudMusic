@@ -5,3 +5,9 @@ export function getSongItem(idx){
         url: '/top/list?idx=' + idx
     })
 }
+
+export function getSongsUrl(id){
+    return request({
+        url: '/song/url?id=' + id
+    })
+}

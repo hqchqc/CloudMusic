@@ -32,7 +32,7 @@
                 </div>
             </div>
             <ul class="box">
-                <li v-for="(attr,index) of SongItem" :key="index" class="liItem" @click="choose(attr.id)">
+                <li v-for="(attr,index) of SongItem" :key="index" class="liItem" @click="choose(attr.id,index)">
                     <div class='box_num'>
                         <p>{{index+1}}</p>
                     </div>
@@ -48,43 +48,45 @@
                 </li>
             </ul>
         </div> 
-        <player/>
     </div>
 </template>
 
 <script>
-import {getSongItem} from 'network/rankItem'
-import {getSongsUrl} from 'network/rank'
+import {getSongItem,getSongsUrl} from 'network/rankItem'
 
-import Player from 'views/Player/Player'
+import {mapActions} from 'vuex'
 
 export default {
     name: 'RankItem',
     components:{
-        Player
+        
     },
     data() {
         return {
             id: 0,
             idx: '',
             SongItem: [],
-            url: '',
-            picUrl: '',
+            url: '',    // 歌曲链接
+            picUrl: '', // 歌曲封面链接
             alia: '',
             zjName: '',
             music: {}
         }
     },
     methods: {
+        ...mapActions(['AddMusic']),
         goback(){
             this.$router.back()
         },
-        choose(id){
-            this.id = id
+        choose(id,index){
+            getSongsUrl(id).then(res=>{
+                this.url = res.data.data[0].url
+            })
+            // 这里要设置延时执行否则第一次点击的时候拿不到歌曲链接
+            setTimeout(()=>{
+                this.$store.dispatch('AddMusic',{url:this.url,songItem:this.SongItem[index],index:index})
+            },150)
             
-            // console.log(this.url)
-            // var detailMusic = {url: this.url, pic: }
-            // this.$store.commit(addMusic,detailMusic)
             
         }
     },
@@ -92,7 +94,6 @@ export default {
         this.idx = this.$route.params.id;
         // 1.获取歌曲列表数据
         getSongItem(this.idx).then(res=>{
-            // this.SongItem = res.data.playlist.tracks
             for(var attr of res.data.playlist.tracks){
                 this.picUrl = attr.al.picUrl    // 图片封面
                 this.songName = attr.name       // 歌曲名称
@@ -104,14 +105,7 @@ export default {
                               id: this.id, singerName: this.singerName, zjName: this.zjName}
                 this.SongItem.push(this.music)
             }
-            // console.log(this.SongItem)
-            // console.log(res.data.playlist.tracks)
         })
-        // 2.获取歌曲具体信息
-        // getSongsUrl(id==nulll).then(res=>{
-        //     this.url = res.data.data[0].url
-            
-        // })
     },
     
 }

@@ -12,16 +12,27 @@
 
             </div>
             <div class="list">
-                
             </div>
         </div>
-        <audio src="" id="audio" autoplay></audio>
+        
+            <audio :src="$store.state.music.url" id="audio" autoplay></audio>
+        
+        
     </div>
 </template>
 
 <script>
 export default {
-    name: 'Player'
+    name: 'Player',
+    data() {
+        return {
+            index: this.$store.state.music.index
+        }
+    },
+    created(){
+        console.log(this.$store.state.music.index)
+    }
+    
 }
 </script>
 
@@ -32,6 +43,6 @@ export default {
         background-color: red;
         bottom: 0px;
         z-index: 9;
-        position: absolute;
+        position: position;
     }
 </style>
