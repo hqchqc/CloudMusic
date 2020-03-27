@@ -53,3 +53,9 @@ export class More{
         this.total.push(this.content)
     }
 }
+
+export function getSongsUrl(id){
+    return request({
+        url: '/song/url?id=' + id
+    })
+}

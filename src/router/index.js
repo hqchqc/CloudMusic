@@ -47,7 +47,7 @@ const routes = [
         component: songlist
     },
     {
-        path: '/rank',   //发现-->排行榜 id为歌单信息
+        path: '/rank',   //发现-->排行榜
         component: rank
     },
     {
@@ -71,7 +71,7 @@ const routes = [
         component: video
     },
     {
-        path: '/rank/:id',
+        path: '/rank/:id',  //排行榜(具体)
         component: rank_item
     }
 ]
