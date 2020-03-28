@@ -54,7 +54,7 @@
 <script>
 import {getSongItem,getSongsUrl} from 'network/rankItem'
 
-import {mapActions} from 'vuex'
+import {mapActions,isShow,isPause} from 'vuex'
 
 export default {
     name: 'RankItem',
@@ -87,8 +87,13 @@ export default {
                 this.$store.dispatch('AddMusic',{url:this.url,songItem:this.SongItem[index],index:index}).then(res=>{
                     console.log(res)
                 })
-            },200)
-            
+            },800)
+            // 底部显示播放控件
+            this.$store.commit('isShow')
+            // 改变暂停和播放图标
+            if(!this.$store.state.Pause){
+                this.$store.commit('isPause')
+            }
             
         }
     },
@@ -183,6 +188,7 @@ export default {
     .box{
         margin-top: -25px;
         display: block;
+        margin-bottom: 43px;
     }
     .angle{
         float: left;

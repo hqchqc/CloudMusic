@@ -1,4 +1,4 @@
-import {GET_MUSIC} from './mutations-types'
+import {GET_MUSIC,IS_SHOW,IS_PAUSE} from './mutations-types'
 
 export default {
     [GET_MUSIC](state,payload){
@@ -7,4 +7,10 @@ export default {
         var songItem = payload.songItem
         state.music = {index,url,songItem}
     },
+    [IS_SHOW](state){
+        state.show = true
+    },
+    [IS_PAUSE](state){
+        state.Pause = !state.Pause
+    }
 }
