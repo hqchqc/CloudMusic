@@ -2,7 +2,7 @@
     <div class="player">
         <div class="bottom_player">
             <div class="pic">
-                <img src="">
+                <img :src="$store.state.music.songItem.picUrl">
             </div>
             <div class="songName">
                 <p></p>
@@ -15,7 +15,7 @@
             </div>
         </div>
         
-            <audio :src="$store.state.music.url" id="audio" autoplay></audio>
+        <audio :src="$store.state.music.url" id="audio" autoplay></audio>
         
         
     </div>
@@ -24,15 +24,6 @@
 <script>
 export default {
     name: 'Player',
-    data() {
-        return {
-            index: this.$store.state.music.index
-        }
-    },
-    created(){
-        console.log(this.$store.state.music.index)
-    }
-    
 }
 </script>
 
@@ -41,8 +32,19 @@ export default {
         width: 100%;
         height: 43px;
         background-color: red;
-        bottom: 0px;
+        bottom:0px;
         z-index: 9;
-        position: position;
+        position: absolute;
+    }
+    .pic{
+        width: 38px;
+        height: 38px;
+        margin:0px auto;
+    }
+    .pic img{
+        width: 38px;
+        height: 38px;
+        border: 0px solid #fff;
+        border-radius: 19px;
     }
 </style>

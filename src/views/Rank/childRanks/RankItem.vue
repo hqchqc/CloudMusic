@@ -84,8 +84,10 @@ export default {
             })
             // 这里要设置延时执行否则第一次点击的时候拿不到歌曲链接
             setTimeout(()=>{
-                this.$store.dispatch('AddMusic',{url:this.url,songItem:this.SongItem[index],index:index})
-            },150)
+                this.$store.dispatch('AddMusic',{url:this.url,songItem:this.SongItem[index],index:index}).then(res=>{
+                    console.log(res)
+                })
+            },200)
             
             
         }
