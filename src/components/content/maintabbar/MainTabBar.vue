@@ -1,14 +1,16 @@
 <template>
     <nav-bar>
       <div slot="left" class="left">
-        <img src="~assets/img/find/navbar/menu.svg" />
+        <img v-if="isChoose!==0" src="~assets/img/find/navbar/menu.svg"/>
+        <img v-else src="~assets/img/common/_menu_white.svg"/>
       </div>
       <div slot="center" class="center">
         <div class="center_item" v-for="(attr,index) in navbar_center" :key="attr" @click="itemClick(index)"
-          :class="{chooseItem:index===isChoose}">{{attr}}</div>
+          :class="{chooseItem:index===isChoose,profile:isChoose===0}">{{attr}}</div>
       </div>
       <div slot="right">
-        <img src="~assets/img/find/navbar/search.svg" />
+        <img v-if="isChoose!==0" src="~assets/img/find/navbar/search.svg"/>
+        <img v-else src="~assets/img/common/search_white.svg"/>
       </div>
     </nav-bar>
 </template>
@@ -60,5 +62,8 @@ export default {
 .chooseItem {
   font-size: 15px;
   color: black;
+}
+.profile{
+  color: #fff;
 }
 </style>

@@ -1,29 +1,21 @@
-# cloud_music
+# 前言
+🚀🚀学完了Vue之后一直想找一个项目练手，感觉好多东西都快忘记了，所以还是要多敲代码，找了好久都不知道要写什么项目，感觉大部分都是xxx管理系统，如果写简历上，有点大众化，当然也考虑过另一个大佬写的45个页面的那个饿了么，又担心自己写不下去，hhh，于是还是选择写一下网易云音乐，看了一下其他人写的，都是比较老的版本的网易云，这次我写一个新的版本吧！比较好的是有后端的接口和文档，方便很多，感谢写这个接口的这位大佬。
 
-## Project setup
-```
-npm install
-```
+## 技术栈
+🚀🚀vue-cli4 + vue2 + vuex + vue-router + webpack + axious
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 项目日志
+🚀🚀
+xx-xx ~ 03-29 
+- 早上
+    - 啥也没干 🤔
+- 下午
+    - 完成发现页面歌单点击之后的播放
+    - 完成排行榜界面底部推荐榜...点击之后的播放
+    - 将上面两个模块封装成一个模块调试bug
+- 晚上
+    - 完成我的界面上半部分的样式设计
+- 总结
+    - 这一天天的啥时候是个头啊，写的也忒慢了，累死个人算了😪
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 每日更新进度...

@@ -2,11 +2,11 @@
     <div id="find">
         <find-swiper :banner='banner'/>
         <find-recommend/>
-        <find-welcome/>
+        <!-- <find-welcome/> -->
         <recommend :recommendList='recommendList' :font_left='getContent'/>
         <song-recommend :songList='songList' :loading = 'loading' :font_left='getSongContent'/>
         <recommend :recommendList='ActionrecommendList' :font_left='getActionContent'/>
-        <recommend :recommendList='RadioRecommendList' :font_left='getRadioContent'/>
+        <recommend :recommendList='RadioRecommendList' :font_left='getRadioContent'  :class="{active: $store.state.show}"/>
     </div>
 </template>
 

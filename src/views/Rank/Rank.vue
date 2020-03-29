@@ -2,9 +2,9 @@
     <div id='rank'>
         <rank-nav-bar/>
         <rank-official :rankOfficial="rankOfficial"/>
-        <rank-List :listItem="rankCommend"><p slot="font">推荐榜</p></rank-List>
-        <rank-List :listItem="rankWorld"><p slot="font">全球榜</p></rank-List>
-        <rank-List :listItem="rankMore"><p slot="font">更多榜单</p></rank-List>
+        <rank-List :listItem="rankCommend" @click.native="recommend"><p slot="font">推荐榜</p></rank-List>
+        <rank-List :listItem="rankWorld" @click.native="world"><p slot="font">全球榜</p></rank-List>
+        <rank-List :listItem="rankMore" @click.native="more" :class="{active: $store.state.show}"><p slot="font">更多榜单</p></rank-List>
     </div>
 </template>
 
@@ -15,6 +15,8 @@ import RankOfficial from './childRanks/RankOfficial'
 import RankList from 'components/content/ranklist/RankList'
 
 import {getRank,Official,Recommend,World,More} from 'network/rank'
+
+import {recommendClick,worldClick,moreClick} from 'vuex'
 export default {
     name: 'Rank',
     components:{
@@ -29,6 +31,17 @@ export default {
             rankCommend: [],
             rankWorld: [],
             rankMore: []
+        }
+    },
+    methods:{
+        recommend(){
+            this.$store.commit('recommendClick')
+        },
+        world(){
+            this.$store.commit('worldClick')
+        },
+        more(){
+            this.$store.commit('moreClick')
         }
     },
     created(){

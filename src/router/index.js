@@ -26,7 +26,7 @@ const rank = ()=>import('views/Rank/Rank.vue')
 const radio = ()=>import('views/Radio/Radio.vue')
 const online = ()=>import('views/Find/childViews/OnLine.vue')
 
-const rank_item = ()=>import('views/Rank/childRanks/RankItem.vue')
+const song_sheet = ()=>import('components/content/songSheet/songSheet.vue')
 
 // 3.1 配置路由映射
 const routes = [
@@ -72,7 +72,13 @@ const routes = [
     },
     {
         path: '/rank/:id',  //排行榜(具体)
-        component: rank_item
+        component: song_sheet,
+        name: '/rank/'
+    },
+    {
+        path: '/find/:id',  //发现页面的歌单推荐(风格推荐 场景推荐 电台推荐)
+        component: song_sheet,
+        name: '/find/'
     }
 ]
 

@@ -52,12 +52,12 @@
 </template>
 
 <script>
-import {getSongItem,getSongsUrl} from 'network/rankItem'
-
+import {getSongsUrl} from 'network/rankItem'
+import {getSongSheet} from 'network/songSheet'
 import {mapActions,isShow,isPause} from 'vuex'
 
 export default {
-    name: 'RankItem',
+    name: 'FindItem',
     components:{
         
     },
@@ -99,8 +99,9 @@ export default {
     },
     created(){
         this.idx = this.$route.params.id;
+        console.log(this.$route)
         // 1.获取歌曲列表数据
-        getSongItem(this.idx).then(res=>{
+        getSongSheet(this.idx).then(res=>{
             for(var attr of res.data.playlist.tracks){
                 this.picUrl = attr.al.picUrl    // 图片封面
                 this.songName = attr.name       // 歌曲名称

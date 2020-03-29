@@ -19,10 +19,16 @@
 
 <script>
 import RecommendItem from './RecommendItem.vue'
+import {getSongSheet} from 'network/songSheet'
 export default {
     name: 'Recommend',
     components:{
         RecommendItem
+    },
+    data(){
+        return{
+
+        }
     },
     props:{
         font_left:{
@@ -41,9 +47,9 @@ export default {
     methods:{
         // 歌单链接
         loadList(index){
-            console.log(this.recommendList[index].id)
+            this.$router.push('/find/' + this.recommendList[index].id)
         }
-    }
+    },
 }
 </script>
 

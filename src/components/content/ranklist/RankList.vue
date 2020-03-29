@@ -6,7 +6,7 @@
             </slot>
         </div>
         <div class="list">
-            <rank-list-item v-for="(attr,index) in listItem" :key="index" :list = 'attr'/>
+            <rank-list-item v-for="(attr,index) in listItem" :key="index" :list = 'attr' @click.native="rankClick(index)"/>
         </div>
     </div>
 </template>
@@ -18,12 +18,35 @@ export default {
     components:{
         RankListItem
     },
+    data(){
+        return{
+            idxRecommend: [23,24,4,26,27,22],
+            idxWorld: [28,25,29,30,5,6],
+            idxMore: [21,7,8,10,9,20,31,32,19,0,1,2]
+        }
+    },
     props:{
         listItem:{
             type: Array,
             default(){
                 return []
             }
+        }
+    },
+    methods:{
+        rankClick(index){
+            // 加延迟是因为修改state的值需要一点时间
+            setTimeout(()=>{
+                if(this.$store.state.rank == 'recommend'){
+                    this.$router.push('/rank/' + this.idxRecommend[index])
+                }else if(this.$store.state.rank == 'world'){
+                    this.$router.push('/rank/' + this.idxWorld[index])
+                }else if(this.$store.state.rank == 'more'){
+                    this.$router.push('/rank/' + this.idxMore[index])
+                }else{
+                    this.$router.push('/rank/')
+                }
+            })
         }
     }
 }

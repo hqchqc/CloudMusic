@@ -25,12 +25,11 @@
         
         <audio :src="$store.state.music.url" id="audio" autoplay></audio>
         
-        
     </div>
 </template>
 
 <script>
-import {isPause} from 'vuex'
+import {isPause} from 'vuex'    
 export default {
     name: 'Player',
     methods:{

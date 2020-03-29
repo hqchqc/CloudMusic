@@ -52,12 +52,12 @@
 </template>
 
 <script>
-import {getSongItem,getSongsUrl} from 'network/rankItem'
-
+import {getSongsUrl,getSongItem} from 'network/rankItem'
+import {getSongSheet} from 'network/songSheet'
 import {mapActions,isShow,isPause} from 'vuex'
 
 export default {
-    name: 'RankItem',
+    name: 'songSheet',
     components:{
         
     },
@@ -99,20 +99,37 @@ export default {
     },
     created(){
         this.idx = this.$route.params.id;
-        // 1.获取歌曲列表数据
-        getSongItem(this.idx).then(res=>{
-            for(var attr of res.data.playlist.tracks){
-                this.picUrl = attr.al.picUrl    // 图片封面
-                this.songName = attr.name       // 歌曲名称
-                this.alia = attr.alia[0]        // 歌曲名称后面对应的  xxx主题曲
-                this.id = attr.id               // 歌曲ID
-                this.singerName = attr.ar[0].name   // 歌手名称
-                this.zjName = attr.al.name            // 专辑名称
-                this.music = {picUrl: this.picUrl, songName: this.songName, alia: this.alia==null?'':this.alia,
-                              id: this.id, singerName: this.singerName, zjName: this.zjName}
-                this.SongItem.push(this.music)
-            }
-        })
+        // 获取歌曲列表数据
+        if(this.$route.name == '/rank/'){
+            getSongItem(this.idx).then(res=>{
+                for(var attr of res.data.playlist.tracks){
+                    this.picUrl = attr.al.picUrl    // 图片封面
+                    this.songName = attr.name       // 歌曲名称
+                    this.alia = attr.alia[0]        // 歌曲名称后面对应的  xxx主题曲
+                    this.id = attr.id               // 歌曲ID
+                    this.singerName = attr.ar[0].name   // 歌手名称
+                    this.zjName = attr.al.name            // 专辑名称
+                    this.music = {picUrl: this.picUrl, songName: this.songName, alia: this.alia==null?'':this.alia,
+                                id: this.id, singerName: this.singerName, zjName: this.zjName}
+                    this.SongItem.push(this.music)
+                }
+            })
+        }else if(this.$route.name == '/find/'){
+            getSongSheet(this.idx).then(res=>{
+                for(var attr of res.data.playlist.tracks){
+                    this.picUrl = attr.al.picUrl    // 图片封面
+                    this.songName = attr.name       // 歌曲名称
+                    this.alia = attr.alia[0]        // 歌曲名称后面对应的  xxx主题曲
+                    this.id = attr.id               // 歌曲ID
+                    this.singerName = attr.ar[0].name   // 歌手名称
+                    this.zjName = attr.al.name            // 专辑名称
+                    this.music = {picUrl: this.picUrl, songName: this.songName, alia: this.alia==null?'':this.alia,
+                                id: this.id, singerName: this.singerName, zjName: this.zjName}
+                    this.SongItem.push(this.music)
+                }
+            })
+        }
+       
     },
     
 }
