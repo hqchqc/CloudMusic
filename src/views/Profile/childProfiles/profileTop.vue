@@ -2,35 +2,21 @@
 <div id="profile">
     <div class="proTop">
         <div class="head">
-            <img src="~assets/img/profile/head.svg">
+            <img v-if="Object.keys(this.$store.state.userInfo).length!==0" :src='$store.state.userInfo.userHead'>
+            <img v-else src="~assets/img/profile/head.svg">
         </div>
         <div class="font">
-            <p>登录立享手机电脑多端同步</p>
+            <p v-if="Object.keys(this.$store.state.userInfo).length!==0">{{$store.state.userInfo.userName}}</p>
+            <p v-else>登录立享手机电脑多端同步</p>
         </div>
-        <div class="login">
+        <div class="login" @click='logins()'>
             <p>立即登录</p>
         </div>
     </div>
     <div class="probottom">
-        <div class="proItem">
-            <img src='~assets/img/profile/music.svg'>
-            <p>本地音乐</p>
-        </div>
-        <div class="proItem">
-            <img src='~assets/img/profile/download.svg'>
-            <p>下载管理</p>
-        </div>
-        <div class="proItem">
-            <img src='~assets/img/profile/radio.svg'>
-            <p>我的电台</p>
-        </div>
-        <div class="proItem">
-            <img src='~assets/img/profile/collect.svg'>
-            <p>我的收藏</p>
-        </div>
-        <div class="proItem">
-            <img src='~assets/img/profile/song.svg'>
-            <p>关注新歌</p>
+        <div class="proItem" v-for="(attr,index) in item" :key="index">
+            <img :src="attr.src">
+            <p>{{item[index].font}}</p>
         </div>
     </div>
 </div>
@@ -38,7 +24,23 @@
 
 <script>
 export default {
-    name: 'ProfileTop'
+    name: 'ProfileTop',
+    data(){
+        return {
+            item: [
+                {src: require('assets/img/profile/music.svg'),font: '本地音乐'},
+                {src: require('assets/img/profile/download.svg'),font: '下载管理'},
+                {src: require('assets/img/profile/radio.svg'),font: '我的电台'},
+                {src: require('assets/img/profile/collect.svg'),font: '我的收藏'},
+                {src: require('assets/img/profile/song.svg'),font: '关注新歌'},
+            ]
+        }
+    },
+    methods:{
+        logins(){
+            this.$router.push('/login')
+        }
+    }
 }
 </script>
 
@@ -47,11 +49,11 @@ export default {
     position: relative;
     background-color: #1E1E24;
     top: -43px;
-    z-index: -1;
     font-size: 8px;
     color: #fff;
     height: 160px;
     letter-spacing: 1px;
+    z-index: 1;
 }
 .proTop{
     position: absolute;

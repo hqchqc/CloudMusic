@@ -9,5 +9,5 @@ export default{
                 res('歌曲即将播放')
             }
         })
-    }
+    },
 }

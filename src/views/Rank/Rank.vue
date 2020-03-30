@@ -1,6 +1,6 @@
 <template>
     <div id='rank'>
-        <rank-nav-bar/>
+        <title-bar-left :font='font' style="margin-top:-43px"/>
         <rank-official :rankOfficial="rankOfficial"/>
         <rank-List :listItem="rankCommend" @click.native="recommend"><p slot="font">推荐榜</p></rank-List>
         <rank-List :listItem="rankWorld" @click.native="world"><p slot="font">全球榜</p></rank-List>
@@ -9,9 +9,8 @@
 </template>
 
 <script>
-import RankNavBar from './childRanks/RankNavBar'
+import TitleBarLeft from 'components/content/titlebar/TitleBarLeft'
 import RankOfficial from './childRanks/RankOfficial'
-
 import RankList from 'components/content/ranklist/RankList'
 
 import {getRank,Official,Recommend,World,More} from 'network/rank'
@@ -20,7 +19,7 @@ import {recommendClick,worldClick,moreClick} from 'vuex'
 export default {
     name: 'Rank',
     components:{
-        RankNavBar,
+        TitleBarLeft,
         RankOfficial,
         RankList
     },
@@ -30,7 +29,8 @@ export default {
             rankOfficial: [],
             rankCommend: [],
             rankWorld: [],
-            rankMore: []
+            rankMore: [],
+            font: '排行榜'
         }
     },
     methods:{

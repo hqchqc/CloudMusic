@@ -26,6 +26,9 @@ const rank = ()=>import('views/Rank/Rank.vue')
 const radio = ()=>import('views/Radio/Radio.vue')
 const online = ()=>import('views/Find/childViews/OnLine.vue')
 
+const login = ()=>import('components/content/login/Login.vue')
+const tel_login = ()=>import('components/content/login/TelLogin.vue')
+
 const song_sheet = ()=>import('components/content/songSheet/songSheet.vue')
 
 // 3.1 配置路由映射
@@ -79,7 +82,15 @@ const routes = [
         path: '/find/:id',  //发现页面的歌单推荐(风格推荐 场景推荐 电台推荐)
         component: song_sheet,
         name: '/find/'
-    }
+    },
+    {
+        path: '/login',     //登录界面
+        component: login,
+    },
+    {
+        path: '/login/tel', //手机号登录
+        component: tel_login 
+    },
 ]
 
 // 3.创建路由实例

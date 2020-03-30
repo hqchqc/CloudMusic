@@ -1,6 +1,6 @@
 import {GET_MUSIC,IS_SHOW,IS_PAUSE} from './mutations-types'
 import {RECOMMEND_CLICK,WORLD_CLICK,MORE_CLICK} from './mutations-types'
-
+import {LOGIN_AFTER} from './mutations-types'
 export default {
     [GET_MUSIC](state,payload){
         var index = payload.index
@@ -25,4 +25,8 @@ export default {
     [MORE_CLICK](state){
         state.rank = 'more'
     },
+
+    [LOGIN_AFTER](state,payload){
+        state.userInfo = payload
+    }
 }

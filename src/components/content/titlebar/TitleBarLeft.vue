@@ -3,18 +3,26 @@
         <title-bar>
             <div slot="left" class="left"  >
                 <img src="~assets/img/common/back.svg" @click="back()">
-                <div class="left-font">排行榜</div>
+                <div class="left-font">{{font}}</div>
             </div>
         </title-bar>       
     </div>
 </template>
 
 <script>
-import TitleBar from 'components/content/titlebar/TitleBar'
+import TitleBar from './TitleBar'
 export default {
-    name: 'RankNavBar',
+    name: 'TitleBarLeft',
     components: {
         TitleBar
+    },
+    props: {
+        font:{
+            type: String,
+            default(){
+                return ''
+            }
+        }
     },
     methods:{
         back(){
@@ -27,8 +35,8 @@ export default {
 <style scoped>
     .rank-nav{
         position: relative;
-        margin-top: -43px;
         background-color:#fff;
+        z-index: 9;
     }
     .left{
         margin-left: 10px;
@@ -42,5 +50,6 @@ export default {
     .left-font{
         display:inline-block;
         font-size: 15px;
+        font-weight: 800;
     }
 </style>
