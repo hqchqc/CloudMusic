@@ -31,6 +31,10 @@ const tel_login = ()=>import('components/content/login/TelLogin.vue')
 
 const song_sheet = ()=>import('components/content/songSheet/songSheet.vue')
 
+const create = ()=>import('components/content/profileAbout/Create.vue')
+const collected = ()=>import('components/content/profileAbout/Collected.vue')
+
+
 // 3.1 配置路由映射
 const routes = [
     {
@@ -63,7 +67,21 @@ const routes = [
     },
     {
         path: '/profile',    //2.我的
-        component: profile
+        component: profile,
+        children: [
+            {
+                path:'',            // 重定向 -> 新建歌单
+                redirect: 'create'
+            },
+            {
+                path: 'create',     // 我的 -> 新建歌单
+                component: create
+            },
+            {
+                path: 'collected',  // 我的 -> 收藏歌单
+                component: collected
+            }
+        ]
     },
     {
         path: '/cloud_village',  //3.云村

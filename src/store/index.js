@@ -12,7 +12,9 @@ const state = {
 
     rank: 'recommend', //用来判断哪一个榜单被点击
 
-    userInfo: {}    //用户名称 用户头像 用户ID
+    userInfo: JSON.parse(localStorage.getItem('userInfo')) || {},   //用户名称 用户头像 用户ID
+    createInfo: [],     //用户创建的歌单
+    collectInfo: [],    //用户收藏的歌单
 }
 
 const store = new Vuex.Store({

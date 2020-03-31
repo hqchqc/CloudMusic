@@ -7,3 +7,5 @@ export const WORLD_CLICK = 'worldClick'
 export const MORE_CLICK = 'moreClick'
 
 export const LOGIN_AFTER = 'loginAfter'
+export const CREATE_INFO = 'createInfo'
+export const COLLECTED_INFO = 'collectedInfo'

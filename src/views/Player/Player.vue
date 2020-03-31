@@ -52,10 +52,11 @@ export default {
     .player{
         width: 100%;
         height: 43px;
-        background-color: #fff;
+        background-color: rgba(255, 255, 255, 0.95);
         bottom:0px;
         z-index: 9;
         position: fixed;
+        border-top: 0.2px solid #ccc;
     }
     .bottom_player{
         display: flex;

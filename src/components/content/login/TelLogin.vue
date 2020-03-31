@@ -63,7 +63,6 @@ export default {
                     this.$toast.show(res.data.msg)
                 }else{
                     this.$toast.show('登录成功！')
-                    console.log(res)
                     this.UserInfo = {userName: res.data.profile.nickname,userHead:res.data.profile.avatarUrl,userId:res.data.profile.userId}
                     this.$store.commit('loginAfter',this.UserInfo)
                     this.$router.push('/profile')

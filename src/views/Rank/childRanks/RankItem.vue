@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="theme">
-                <img src="~assets/img/rank/upRank.png">
+                <!-- <img src="~assets/img/rank/upRank.png"> -->
             </div>
         </div>
         <div class="bottom">

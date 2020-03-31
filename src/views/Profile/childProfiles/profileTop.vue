@@ -9,7 +9,7 @@
             <p v-if="Object.keys(this.$store.state.userInfo).length!==0">{{$store.state.userInfo.userName}}</p>
             <p v-else>登录立享手机电脑多端同步</p>
         </div>
-        <div class="login" @click='logins()'>
+        <div class="login" @click='logins()' v-if="Object.keys(this.$store.state.userInfo).length==0">
             <p>立即登录</p>
         </div>
     </div>
@@ -70,6 +70,8 @@ export default {
 }
 .head img{
     width: 30px;
+    border: 0px solid #ccc;
+    border-radius: 15px;
 }
 .font{
     margin-left: 10px;
