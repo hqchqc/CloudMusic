@@ -7,9 +7,9 @@
             <router-link to='/profile/collected' class="created" active-class="active">收藏歌单
                 <span style="font-size:5px" >{{this.$store.state.collectInfo.length}}</span>
             </router-link>
-            <!-- <keep-alive exclude="collected"> -->
+            <keep-alive>
                 <router-view/>
-            <!-- </keep-alive> -->
+            </keep-alive>
             
         </div>
     </div>

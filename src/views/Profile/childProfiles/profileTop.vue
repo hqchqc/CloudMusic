@@ -6,7 +6,7 @@
             <img v-else src="~assets/img/profile/head.svg">
         </div>
         <div class="font">
-            <p v-if="Object.keys(this.$store.state.userInfo).length!==0">{{$store.state.userInfo.userName}}</p>
+            <p style="font-weight:800" v-if="Object.keys(this.$store.state.userInfo).length!==0">{{$store.state.userInfo.userName}}</p>
             <p v-else>登录立享手机电脑多端同步</p>
         </div>
         <div class="login" @click='logins()' v-if="Object.keys(this.$store.state.userInfo).length==0">
@@ -14,7 +14,7 @@
         </div>
     </div>
     <div class="probottom">
-        <div class="proItem" v-for="(attr,index) in item" :key="index">
+        <div class="proItem" v-for="(attr,index) in item" :key="index" @click="choose(index)">
             <img :src="attr.src">
             <p>{{item[index].font}}</p>
         </div>
@@ -39,6 +39,24 @@ export default {
     methods:{
         logins(){
             this.$router.push('/login')
+        },
+        choose(index){
+            switch(index){
+                case 0:
+                case 1:
+                    this.$toast.show('Sorry，该功能暂不支持，期待后续更新嗷' + '(●"◡"●)')
+                    break
+                case 2:
+                    this.$router.push('/radio')
+                    break
+                case 3:
+                    this.$router.push('/collect')
+                    break
+                default:
+
+
+            }
+            
         }
     }
 }

@@ -6,6 +6,12 @@ export function login(account){
         params:{
             phone: account.phone ,
             password: account.password
-        }
+        },
+    })
+}
+
+export function refresh(){
+    return request({
+        url: '/login/status'
     })
 }

@@ -25,6 +25,7 @@ const songlist = ()=>import('views/Find/childViews/SongList.vue')
 const rank = ()=>import('views/Rank/Rank.vue')
 const radio = ()=>import('views/Radio/Radio.vue')
 const online = ()=>import('views/Find/childViews/OnLine.vue')
+const collect = ()=>import('views/Profile/childProfiles/MyCollect.vue')
 
 const login = ()=>import('components/content/login/Login.vue')
 const tel_login = ()=>import('components/content/login/TelLogin.vue')
@@ -34,6 +35,11 @@ const song_sheet = ()=>import('components/content/songSheet/songSheet.vue')
 const create = ()=>import('components/content/profileAbout/Create.vue')
 const collected = ()=>import('components/content/profileAbout/Collected.vue')
 
+const album = ()=>import('views/Profile/childProfiles/Album.vue')
+const singer = ()=>import('views/Profile/childProfiles/Singer.vue')
+const collectVideo = ()=>import('views/Profile/childProfiles/collectVideo.vue')
+const column = ()=>import('views/Profile/childProfiles/Column.vue')
+const mlog = ()=>import('views/Profile/childProfiles/Mlog.vue')
 
 // 3.1 配置路由映射
 const routes = [
@@ -109,6 +115,36 @@ const routes = [
         path: '/login/tel', //手机号登录
         component: tel_login 
     },
+    {
+        path: '/collect',   //我的->我的收藏
+        component: collect,
+        children: [
+            {
+                path: '',
+                redirect: 'album'   //重定向 专辑
+            },
+            {
+                path: 'album',
+                component: album  //我的收藏 -> 专辑
+            },
+            {
+                path: 'singer', 
+                component: singer //我的收藏 -> 歌手
+            },
+            {
+                path: 'collectVideo', 
+                component: collectVideo //我的收藏 -> 视频
+            },
+            {
+                path: 'column', 
+                component: column //我的收藏 -> 专栏
+            },
+            {
+                path: 'mlog', 
+                component: mlog //我的收藏 -> Mlog
+            }
+        ]
+    }
 ]
 
 // 3.创建路由实例

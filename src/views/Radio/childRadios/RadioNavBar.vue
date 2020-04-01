@@ -25,6 +25,9 @@ export default {
 </script>
 
 <style scoped>
+    #RankNavBar{
+        z-index: 2;
+    }
     .left{
         margin-left: 10px;
     }

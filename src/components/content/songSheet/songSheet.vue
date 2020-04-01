@@ -1,10 +1,12 @@
 <template>
     <div>
-        <div class="bgImage">
-            <div class='content' v-if="SongItem.length">
+        <div class="bgImage"  v-if="SongItem.length">
+            <div class='content' v-if="isRank">
+                <img :src="coverImage">
+            </div>
+            <div class="content" v-else>
                 <img :src="SongItem[0].picUrl">
             </div>
-            
             <div class="bar">
                 <div class="left" @click="goback()">
                     <img src="~assets/img/common/back_white.svg">
@@ -19,7 +21,9 @@
                 </div>
             </div>
             <div class="theme">
-                <img src="~assets/img/rank/upRank.png">
+                <!-- <img src="~assets/img/rank/upRank.png"> -->
+                <!-- <img :src="coverImage"> -->
+                
             </div>
         </div>
         <div class="bottom">
@@ -37,7 +41,7 @@
                         <p>{{index+1}}</p>
                     </div>
                     <div class="box_name">
-                        <div class="name_top">
+                        <div class="name_top" style="width=100px">
                             <p>{{attr.songName}}</p>
                             <p class="top_bottom">{{attr.alia==''?'':'('+attr.alia+')'}}</p>
                         </div>
@@ -58,9 +62,6 @@ import {mapActions,isShow,isPause} from 'vuex'
 
 export default {
     name: 'songSheet',
-    components:{
-        
-    },
     data() {
         return {
             id: 0,
@@ -70,7 +71,9 @@ export default {
             picUrl: '', // 歌曲封面链接
             alia: '',
             zjName: '',
-            music: {}
+            music: {},
+            coverImage: '',
+            isRank: true
         }
     },
     methods: {
@@ -113,8 +116,12 @@ export default {
                                 id: this.id, singerName: this.singerName, zjName: this.zjName}
                     this.SongItem.push(this.music)
                 }
+                this.coverImage = res.data.playlist.coverImgUrl
+
             })
+            
         }else if(this.$route.name == '/find/'){
+            this.isRank = false
             getSongSheet(this.idx).then(res=>{
                 for(var attr of res.data.playlist.tracks){
                     this.picUrl = attr.al.picUrl    // 图片封面
@@ -147,6 +154,7 @@ export default {
     }
     .bgImage img{
         width: 100%;
+        margin-top: -17%;
     }
     .bar{
         position: absolute;
@@ -174,11 +182,13 @@ export default {
         width: 20px;
         height: 20px; 
     }
-    .theme img{
-        width: 125px;
-        height: 122px;
+    .theme{
         position:absolute;
         bottom: 85px;
+        margin-left: 10px;
+    }
+    .theme img{
+        width: 80px;   
     }
     .bottom{
         background-color: #F1EFF1;

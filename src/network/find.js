@@ -8,7 +8,7 @@ export function getFindBanner(){
 
 export function getRecommendList(){
     return request({
-        url: '/personalized?limit=6'
+        url: '/personalized?limit=6',
     })
 }
 
