@@ -28,8 +28,10 @@ export default {
     },
 
     [LOGIN_AFTER](state,payload){
-        localStorage.setItem('userInfo',payload.access_token) //将传递的数据先保存到localstorage中
-        setCookie(payload.userName,payload.access_token,1)
+        console.log(payload.access_token)
+        localStorage.setItem('userInfo',JSON.stringify(payload)) //将传递的数据先保存到localstorage中
+        localStorage.setItem('access_token',payload.access_token) //将传递的数据先保存到localstorage中
+        // setCookie(payload.userName,payload.access_token,1)
         state.userInfo = payload
     },
     [CREATE_INFO](state,payload){

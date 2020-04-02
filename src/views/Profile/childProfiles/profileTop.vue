@@ -2,14 +2,14 @@
 <div id="profile">
     <div class="proTop">
         <div class="head">
-            <img v-if="Object.keys(this.$store.state.userInfo).length!==0" :src='$store.state.userInfo.userHead'>
+            <img v-if="Object.keys(this.userDetail).length!==0" :src='this.userDetail.userHead'>
             <img v-else src="~assets/img/profile/head.svg">
         </div>
         <div class="font">
-            <p style="font-weight:800" v-if="Object.keys(this.$store.state.userInfo).length!==0">{{$store.state.userInfo.userName}}</p>
+            <p style="font-weight:800" v-if="Object.keys(this.userDetail).length!==0">{{this.userDetail.userName}}</p>
             <p v-else>登录立享手机电脑多端同步</p>
         </div>
-        <div class="login" @click='logins()' v-if="Object.keys(this.$store.state.userInfo).length==0">
+        <div class="login" @click='logins()' v-if="Object.keys(this.userDetail).length==0">
             <p>立即登录</p>
         </div>
     </div>
@@ -33,7 +33,8 @@ export default {
                 {src: require('assets/img/profile/radio.svg'),font: '我的电台'},
                 {src: require('assets/img/profile/collect.svg'),font: '我的收藏'},
                 {src: require('assets/img/profile/song.svg'),font: '关注新歌'},
-            ]
+            ],
+            userDetail: {}
         }
     },
     methods:{
@@ -58,6 +59,9 @@ export default {
             }
             
         }
+    },
+    mounted(){
+        this.userDetail = this.$store.state.userInfo
     }
 }
 </script>

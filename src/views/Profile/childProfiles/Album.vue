@@ -18,13 +18,15 @@
 
 <script>
 import {getCollectAlbum} from 'network/collect'
-import {refresh} from 'network/login.js'
+import {status,logout} from 'network/login.js'
 export default {
     name: 'Album',
     created(){
         getCollectAlbum().then(res=>{
-            // getCookie(this.$store.state.userInfo.userName)
-            // console.log(res)
+            console.log(res)
+        })
+        status().then(res=>{
+            console.log(res)
         })
     }
 }
