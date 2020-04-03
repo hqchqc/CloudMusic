@@ -25,9 +25,9 @@ export default {
         getCollectAlbum().then(res=>{
             console.log(res)
         })
-        status().then(res=>{
-            console.log(res)
-        })
+        // status().then(res=>{
+        //     console.log(res)
+        // })
     }
 }
 </script>
