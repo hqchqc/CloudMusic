@@ -17,8 +17,8 @@
 </template>
 
 <script>
-// import {getCollectAlbum} from 'network/collect'
-import {status,logout} from 'network/login.js'
+import {getCollectAlbum} from 'network/collect'
+// import {status,logout} from 'network/login.js'
 export default {
     name: 'Album',
     created(){
