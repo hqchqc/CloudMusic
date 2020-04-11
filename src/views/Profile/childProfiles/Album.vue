@@ -10,7 +10,7 @@
         </div>
         <div class="myCollected">
             <div class="collectAlbum">
-                <p>收藏的专辑</p>
+                <p>辑</p>
             </div>
         </div>
     </div>
@@ -18,16 +18,16 @@
 
 <script>
 import {getCollectAlbum} from 'network/collect'
-// import {status,logout} from 'network/login.js'
+import {status,logout} from 'network/login.js'
 export default {
     name: 'Album',
     created(){
         getCollectAlbum().then(res=>{
             console.log(res)
         })
-        // status().then(res=>{
-        //     console.log(res)
-        // })
+        status().then(res=>{
+            console.log(res)
+        })
     }
 }
 </script>
