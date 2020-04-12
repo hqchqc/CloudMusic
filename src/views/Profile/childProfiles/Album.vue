@@ -10,7 +10,7 @@
         </div>
         <div class="myCollected">
             <div class="collectAlbum">
-                <p>辑</p>
+                <p>收藏的专辑</p>
             </div>
         </div>
     </div>

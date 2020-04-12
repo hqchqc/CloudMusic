@@ -2,13 +2,13 @@
     <div id="profile">
         <profile-top/>
         <my-music/>
-        <my-info> </my-info>
+        <my-info/>
     </div>
 </template>
 
 <script>
-// import ProfileTop from './childProfiles/ProfileTop'
-// import MyMusic from './childProfiles/MyMusic'
+import ProfileTop from './childProfiles/ProfileTop'
+import MyMusic from './childProfiles/MyMusic'
 import MyInfo from './childProfiles/MyInfo'
 export default {
     name: 'Profile',
