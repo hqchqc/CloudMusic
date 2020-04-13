@@ -4,6 +4,7 @@
             <div class="album-number">
                 <img src="~assets/img/profile/album.svg">
                 <div class="number">
+                    <!-- <p>我的数字专辑</p> -->
                     <p>我的数字专辑</p>
                 </div>
             </div>
