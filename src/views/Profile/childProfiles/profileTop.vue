@@ -61,7 +61,7 @@ export default {
         }
     },
     mounted(){
-        this.userDetail = this.$store.state.userInfo
+        this.userDetail = JSON.parse(this.$store.state.userInfo)
     }
 }
 </script>

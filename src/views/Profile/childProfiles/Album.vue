@@ -4,7 +4,6 @@
             <div class="album-number">
                 <img src="~assets/img/profile/album.svg">
                 <div class="number">
-                    <!-- <p>我的数字专辑</p> -->
                     <p>我的数字专辑</p>
                 </div>
             </div>
@@ -24,6 +23,12 @@ export default {
     name: 'Album',
     created(){
         getCollectAlbum().then(res=>{
+            console.log(res)
+        })
+        status().then(res=>{
+            console.log(res)
+        })
+        logout().then(res=>{
             console.log(res)
         })
         status().then(res=>{
