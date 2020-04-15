@@ -27,12 +27,7 @@ export default {
         })
         status().then(res=>{
             console.log(res)
-        })
-        logout().then(res=>{
-            console.log(res)
-        })
-        status().then(res=>{
-            console.log(res)
+
         })
     }
 }

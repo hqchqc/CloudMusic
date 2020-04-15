@@ -56,21 +56,20 @@ export default {
             var input = document.getElementsByClassName('input')
             var tel = input[0].value
             this.password = tel
-            console.log(this.password)
             var account = {phone: this.phone,password:this.password}
             login(account).then(res=>{
                 if(res.data.msg){
                     this.$toast.show(res.data.msg)
                 }else{
-                    // console.log(res.data.bindings[1])
-                    // console.log(res.data.bindings[1].tokenJsonStr)
-                    // console.log(JSON.parse(res.data.bindings[1].tokenJsonStr).access_token)
-                    // var token = JSON.parse(res.data.bindings[1].tokenJsonStr).access_token
                     this.$toast.show('登录成功！')
+                     
                     this.UserInfo = {userName: res.data.profile.nickname,userHead:res.data.profile.avatarUrl,
-                    userId:res.data.profile.userId,access_token:res.data.token}
+                    userId:res.data.profile.userId}
                     this.$store.commit('loginAfter',this.UserInfo)
                     this.$router.push('/profile')
+
+                   
+
                 }
                 
             })

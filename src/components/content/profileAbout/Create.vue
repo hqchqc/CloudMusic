@@ -27,9 +27,9 @@ export default {
         }
     },
     created(){
-        getCreate(this.$store.state.userInfo.userId).then(res=>{
+        getCreate(JSON.parse(this.$store.state.userInfo).userId).then(res=>{
             var detail = res.data.playlist
-            var userName = this.$store.state.userInfo.userName
+            var userName = JSON.parse(this.$store.state.userInfo).userName
             for(var i=1; i<detail.length; i++){
                 if(detail[i].creator.nickname == userName){
                     this.createInfo = {listId:detail[i].id,listName:detail[i].name,listPic:detail[i].coverImgUrl,
