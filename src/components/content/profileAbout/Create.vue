@@ -43,6 +43,8 @@ export default {
             }
             this.$store.commit('createInfo',this.userBox)
             this.$store.commit('collectedInfo',this.userContent)
+
+            // github
         })
     }
 }
