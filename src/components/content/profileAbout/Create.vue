@@ -45,6 +45,8 @@ export default {
             this.$store.commit('collectedInfo',this.userContent)
 
             // github
+            // github
+            // github
         })
     }
 }
