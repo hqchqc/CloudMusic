@@ -1,32 +1,9 @@
-const Vue = require('vue')
-
-// 设置cookie
-export function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + "; " + expires;
+// 时间转换
+export function setTime(mark){
+  let minute = Math.floor(mark / 60);
+  let second = (mark - minute * 60)
+  
+  return minute.toString().padStart(2,'0') + ':' + second.toString().padStart(2,'0')
 }
 
-//获取cookie
-export function getCookie (cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') c = c.substring(1);
-      if (c.indexOf(name) != -1){
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-}
 
-//清除cookie
-export function clearCookie (cname) {
-    this.setCookie(cname, "", -1);
-}
-
-// Vue.prototype.setCookie = setCookie
-// Vue.prototype.getCookie = getCookie
-// Vue.prototype.clearCookie = clearCookie

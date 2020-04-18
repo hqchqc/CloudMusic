@@ -31,14 +31,19 @@ export default {
 
 <style scoped>
     .grid{
-        border-bottom: 1px solid red;
+        border-bottom: 0.1px solid gray;
         display: flex;
         text-align: center;
         font-size: 10px;
         margin-top: 10px;
-        padding-bottom: 5px;
+        /* padding-bottom: 5px; */
     }
     .display{
         flex: 1;
+        padding-bottom: 10px;
+    }
+    .router-link-active {
+        color: #FF3E3E;
+        border-bottom: 1px solid #FF3E3E;
     }
 </style>
