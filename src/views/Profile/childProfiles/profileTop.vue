@@ -54,6 +54,9 @@ export default {
                 case 3:
                     this.$router.push('/collect')
                     break
+                case 4:
+                    this.$toast.show('Sorry，该功能暂不支持，期待后续更新嗷' + '(●"◡"●)')
+                    break
                 default:
 
 
