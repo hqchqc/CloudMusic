@@ -1,7 +1,7 @@
 <template>
     <div class="player" v-if="$store.state.show">
         <div class="bottom_player" v-if="$store.state.music.songItem">
-            <div class="pic" >
+            <div class="pic" @click="goDetail">
                 <img :src="$store.state.music.songItem.picUrl">
             </div>
             <div class="songName">
@@ -41,7 +41,10 @@ export default {
             }else{
                 audio.pause()
             }
-            console.log(1)
+        },
+        goDetail(){
+            this.$router.push('/playDetail')
+            // console.log(1)
         }
     },
 

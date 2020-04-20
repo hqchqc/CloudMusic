@@ -41,6 +41,8 @@ const collectVideo = ()=>import('views/Profile/childProfiles/collectVideo.vue')
 const column = ()=>import('views/Profile/childProfiles/Column.vue')
 const mlog = ()=>import('views/Profile/childProfiles/Mlog.vue')
 
+const playDetail = ()=>import('views/Player/childViews/PlayDetail.vue')
+
 // 3.1 配置路由映射
 const routes = [
     {
@@ -144,6 +146,10 @@ const routes = [
                 component: mlog //我的收藏 -> Mlog
             }
         ]
+    },
+    {
+        path: '/playDetail',
+        component: playDetail
     }
 ]
 
