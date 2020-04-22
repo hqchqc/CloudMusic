@@ -45,11 +45,8 @@ export default {
         goDetail(){
             this.$router.push('/playDetail')
             // console.log(1)
-            // 写老师的那个项目什么报告 累死
-            console.log('写老师的那个项目什么报告 累死')
-            console.log('写老师的那个项目什么报告 累死')
-            console.log('写老师的那个项目什么报告 累死')
-            console.log('写老师的那个项目什么报告 累死')
+           console.log('xixixix')
+           console.log('nononono')
         }
     },
 
