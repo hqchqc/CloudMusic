@@ -44,9 +44,6 @@ export default {
         },
         goDetail(){
             this.$router.push('/playDetail')
-            // console.log(1)
-           console.log('xixixix')
-           console.log('nononono')
         }
     },
 
