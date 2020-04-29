@@ -1,12 +1,15 @@
 <template>
-  <div id='playDetail'>
-      <div class="topbar">
-        <title-bar-left/>
-        <div style="margin-top:8px">
-            <span class="songName">{{$store.state.music.songItem.songName}}</span>
-            <br/>
-            <span class="singerName">{{$store.state.music.songItem.singerName}}</span>
-        </div>
+  <div id='playDetail' :style="{background:getUrl}" style="background-size: auto 100%">
+      <div class="bg" >
+            <div class="topbar">
+            <title-bar-left/>
+            <div style="margin-top:8px">
+                <span class="songName">{{$store.state.music.songItem.songName}}</span>
+                <br/>
+                <span class="singerName">{{$store.state.music.songItem.singerName}}</span>
+            </div>
+      </div>
+      
         
       </div>
       
@@ -19,11 +22,28 @@ export default {
     name: 'PlayDetail',
     components:{
         TitleBarLeft
+    },
+    computed:{
+        getUrl(){
+            let url = this.$store.state.music.songItem.picUrl
+            let result = 'url("' + url + '")' + 'no-repeat'
+            console.log(result)
+            return result
+        }
     }
+    
 }
 </script>
 
 <style scoped>
+    #playDetail{
+        /* width:100%; */
+        height:100vh;
+        filter: blur(30px);
+        z-index: 99;
+        
+        
+    }
     .topbar{
         display: flex;
         position: relative;
