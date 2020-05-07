@@ -1,7 +1,7 @@
 <template>
     <div id="RankNavBar" class='rank-nav'> 
         <title-bar>
-            <div slot="left" class="left"  >
+            <div slot="left" class="left">
                 <img src="~assets/img/common/back.svg" @click="back()">
                 <div class="left-font">{{font}}</div>
             </div>

@@ -1,19 +1,16 @@
 <template>
-  <div id='playDetail' :style="{background:getUrl}" style="background-size: auto 100%">
-      <div class="bg" >
-            <div class="topbar">
-            <title-bar-left/>
-            <div style="margin-top:8px">
-                <span class="songName">{{$store.state.music.songItem.songName}}</span>
-                <br/>
-                <span class="singerName">{{$store.state.music.songItem.singerName}}</span>
+    <div id="detail" >
+        <div class="bg">
+            <div class="nav">
+                <title-bar-left/>
+                <div class="font">
+                    {{$store.state.music.songItem.songName}} <br/>
+                    {{$store.state.music.songItem.singerName}}
+                </div>
             </div>
-      </div>
-      
-        
-      </div>
-      
-  </div>
+        </div>
+        <div class="blur" :style="{backgroundImage: this.getUrl,backgroundSize:this.getSize}" ></div>
+    </div>
 </template>
 
 <script>
@@ -25,10 +22,10 @@ export default {
     },
     computed:{
         getUrl(){
-            let url = this.$store.state.music.songItem.picUrl
-            let result = 'url("' + url + '")' + 'no-repeat'
-            console.log(result)
-            return result
+            return 'url('+this.$store.state.music.songItem.picUrl+')'
+        },
+        getSize(){
+            return '100%'
         }
     }
     
@@ -36,27 +33,27 @@ export default {
 </script>
 
 <style scoped>
-    #playDetail{
-        /* width:100%; */
-        height:100vh;
-        filter: blur(30px);
-        z-index: 99;
-        
-        
-    }
-    .topbar{
-        display: flex;
-        position: relative;
-        margin-top: -43px;
-        z-index: 9;
-        background-color: #fff;
-    }
-    .songName{
-        color:#999194;
-        font-size: 13px;
-    }
-    .singerName{
-        color: #999194;
-        font-size: 10px;
-    }
+#detail{
+    position: absolute;
+    top: -2px;
+    width: 100%;
+    height: 100%;
+}
+
+.nav{
+    display: flex;
+}
+.font{
+    background-color: #fff;
+    margin-top: 2px;
+    line-height: 20px;
+    z-index: 9;
+    width: 100%;
+    font-size: 13px;
+}
+.blur{
+    width: 100%;
+    height: 87%;
+    filter: blur(20px);
+}
 </style>
