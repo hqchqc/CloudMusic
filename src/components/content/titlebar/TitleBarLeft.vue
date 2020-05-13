@@ -11,7 +11,7 @@
 
 <script>
 import TitleBar from './TitleBar'
-import {changeShow2} from 'vuex'    
+import {isShow} from 'vuex'    
 
 export default {
     name: 'TitleBarLeft',
@@ -28,6 +28,7 @@ export default {
     },
     methods:{
         back(){
+            this.$store.commit('isShow')
             this.$router.back()
         }
     }
@@ -37,7 +38,6 @@ export default {
 <style scoped>
     .rank-nav{
         position: relative;
-        /* background-color:#fff; */
         z-index: 9;
     }
     .left{

@@ -58,7 +58,6 @@ export default {
   width: 16px;
   height: 16px;
   margin-top: 13px;
-  border: 0px;
 }
 .chooseItem {
   font-size: 15px;
