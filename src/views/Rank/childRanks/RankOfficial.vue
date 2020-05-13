@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import {changeShow} from 'vuex'
 export default {
     name: 'RankOfficial',
     data() {
@@ -45,7 +46,7 @@ export default {
         officialClick(index){
             this.$router.push('/rank/' + this.idx[index])
         }
-    }
+    },
 }
 </script>
 

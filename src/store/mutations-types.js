@@ -9,3 +9,7 @@ export const MORE_CLICK = 'moreClick'
 export const LOGIN_AFTER = 'loginAfter'
 export const CREATE_INFO = 'createInfo'
 export const COLLECTED_INFO = 'collectedInfo'
+
+export const IS_DISPLAY = 'isDisplay'
+export const CHANGE_SHOW = 'changeShow'
+export const CHANGE_SHOW2 = 'changeShow2'

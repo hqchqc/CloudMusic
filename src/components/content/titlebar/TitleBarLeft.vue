@@ -11,6 +11,8 @@
 
 <script>
 import TitleBar from './TitleBar'
+import {changeShow2} from 'vuex'    
+
 export default {
     name: 'TitleBarLeft',
     components: {
@@ -35,7 +37,7 @@ export default {
 <style scoped>
     .rank-nav{
         position: relative;
-        background-color:#fff;
+        /* background-color:#fff; */
         z-index: 9;
     }
     .left{

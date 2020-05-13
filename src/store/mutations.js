@@ -1,7 +1,6 @@
-import {GET_MUSIC,IS_SHOW,IS_PAUSE} from './mutations-types'
+import {GET_MUSIC,IS_SHOW,IS_PAUSE,IS_DISPLAY,CHANGE_SHOW,CHANGE_SHOW2} from './mutations-types'
 import {RECOMMEND_CLICK,WORLD_CLICK,MORE_CLICK} from './mutations-types'
 import {LOGIN_AFTER,CREATE_INFO,COLLECTED_INFO} from './mutations-types'
-import {setCookie} from '../common/utils'
 export default {
     [GET_MUSIC](state,payload){
         var index = payload.index
@@ -37,5 +36,15 @@ export default {
     },
     [COLLECTED_INFO](state,payload){
         state.collectInfo = payload
+    },
+
+    [IS_DISPLAY](state){
+        state.show = false
+    },
+    [CHANGE_SHOW](state){
+        state.mainShow = false
+    },
+    [CHANGE_SHOW2](state){
+        state.mainShow = true
     }
 }

@@ -19,7 +19,7 @@ import Recommend from 'components/content/recommend/Recommend'
 import SongRecommend from 'components/content/songrecommend/SongRecommend'
 
 import {getFindBanner,getRecommendList,getRecommendSong,SongItem,getActionRecommend,getRadioRecommend} from 'network/find'
-
+import {changeShow2} from 'vuex'
 export default {
     name: 'Find',
     components:{
@@ -81,6 +81,9 @@ export default {
         getRadioRecommend().then(res=>{
             this.RadioRecommendList = res.data.djRadios
         })
+
+        // 显示组件导航
+        this.$store.commit('changeShow2')
     }
 }
 </script>

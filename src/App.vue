@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <main-tab-bar/>
-    <keep-alive exclude="RankItem,songSheet,Profile">
+    <keep-alive exclude="RankItem,songSheet,Profile,Rank,Find">
       <router-view/>
     </keep-alive>
     <player/>

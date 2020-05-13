@@ -1,6 +1,6 @@
 <template>
     <div id='rank'>
-        <title-bar-left :font='font' style="margin-top:-43px"/>
+        <title-bar-left :font='font'/>
         <rank-official :rankOfficial="rankOfficial"/>
         <rank-List :listItem="rankCommend" @click.native="recommend"><p slot="font">推荐榜</p></rank-List>
         <rank-List :listItem="rankWorld" @click.native="world"><p slot="font">全球榜</p></rank-List>
@@ -15,7 +15,7 @@ import RankList from 'components/content/ranklist/RankList'
 
 import {getRank,Official,Recommend,World,More} from 'network/rank'
 
-import {recommendClick,worldClick,moreClick} from 'vuex'
+import {recommendClick,worldClick,moreClick,changeShow} from 'vuex'
 export default {
     name: 'Rank',
     components:{
@@ -45,6 +45,7 @@ export default {
         }
     },
     created(){
+        this.$store.commit('changeShow')
         getRank().then(res=>{
             // 官方榜
             var RankOfficial = new Official(res.data.list)
@@ -59,8 +60,7 @@ export default {
             var RankMore = new More(res.data)
             this.rankMore = RankMore.total
         })
-
-    }
+    },
 }
 </script>
 

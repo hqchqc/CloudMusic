@@ -1,5 +1,5 @@
 <template>
-    <nav-bar>
+    <nav-bar v-show="$store.state.mainShow">
       <div slot="left" class="left">
         <img v-if="isChoose!==0" src="~assets/img/find/navbar/menu.svg"/>
         <img v-else src="~assets/img/common/_menu_white.svg"/>

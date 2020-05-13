@@ -1,5 +1,5 @@
 <template>
-    <div class="player" v-if="$store.state.show">
+    <div class="player" v-show="$store.state.show">
         <div class="bottom_player" v-if="$store.state.music.songItem">
             <div class="pic" @click="goDetail">
                 <img :src="$store.state.music.songItem.picUrl">
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import {isPause} from 'vuex'    
+import {isPause,changeShow} from 'vuex'    
 export default {
     name: 'Player',
     methods:{
@@ -43,9 +43,12 @@ export default {
             }
         },
         goDetail(){
-            this.$router.push('/playDetail')
+            this.$router.push('/playDetail')   
+            this.$store.commit('isDisplay')
+            this.$store.commit('changeShow')
         }
     },
+
 
 }
 </script>

@@ -101,6 +101,7 @@ export default {
         }
     },
     created(){
+        this.$store.commit('changeShow2')
         this.idx = this.$route.params.id;
         // 获取歌曲列表数据
         if(this.$route.name == '/rank/'){
