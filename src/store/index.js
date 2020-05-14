@@ -16,8 +16,9 @@ const state = {
     createInfo: [],     //用户创建的歌单
     collectInfo: [],    //用户收藏的歌单
 
-    mainShow: true      //导航栏是否显示
-
+    mainShow: true,     //导航栏是否显示
+    nextSong: {},       // 下一首音乐
+    previousSong: {},   // 上一首音乐
 }
 
 const store = new Vuex.Store({

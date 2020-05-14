@@ -4,7 +4,7 @@
             <div class="nav">
                 <title-bar-left/>
                 <div class="font">
-                    {{$store.state.music.songItem.songName}}({{$store.state.music.songItem.alia}}) <br/>
+                    {{$store.state.music.songItem.songName}}<br/>
                     {{$store.state.music.songItem.singerName}}
                 </div>
             </div>
@@ -14,11 +14,28 @@
             <div class="gan" :style="{transform:this.transform}">
                 <img src='~assets/img/play/styli.png'>
             </div>
-            <div class="disk" :style="{transform:this.diskRoute}"> 
+            <div class="disk"> 
                 <img src="~assets/img/play/disk.png">
             </div>
             <div class="imgShow">
-                <img :src="this.$store.state.music.songItem.picUrl">
+                <img :src="this.$store.state.music.songItem.picUrl" :style="{webkitAnimationPlayState: this.imgShows}">
+            </div>
+        </div>
+        <div class="tail">
+            <div class="control">
+                <div class="previous">
+                    <img src="~assets/img/play/previous.svg">
+                </div>
+                <div class="play" v-if="!$store.state.Pause"  @click="pause">
+                    <img src="~assets/img/play/play.svg">
+                </div>
+                <div class="pause" v-else @click="pause">
+                    <img src="~assets/img/play/pause.svg" >
+                </div>
+                <div class="next" @click="nextClick">
+                    <img src="~assets/img/play/next.svg">
+                </div>
+                
             </div>
         </div>
     </div>
@@ -26,6 +43,7 @@
 
 <script>
 import TitleBarLeft from 'components/content/titlebar/TitleBarLeft'
+import {isPause} from 'vuex'
 export default {
     name: 'PlayDetail',
     components:{
@@ -40,15 +58,32 @@ export default {
         },
         transform(){
             if(this.$store.state.Pause == true){
-                return 'rotate(15deg)'
+                return 'rotate(25deg)'
             }
         },
-        diskRoute(){
-            if(this.$store.state.Pause == true){
-
+        imgShows(){
+            if(!this.$store.state.Pause == true){
+                return 'paused'
             }
         }
     },
+    methods:{
+        pause(){
+            this.$store.commit('isPause')
+            var audio = document.getElementById('audio')
+            if(this.$store.state.Pause){
+                audio.play()
+            }else{
+                audio.pause()
+            }
+        },
+        nextClick(){
+            console.log('next')
+        }
+    },
+    created(){
+        
+    }
 }
 </script>
 
@@ -81,7 +116,6 @@ export default {
     position:absolute;
     top: -30px;
     left: 22%;
-
 }
 .gan{
     position: absolute;
@@ -89,7 +123,7 @@ export default {
 }
 .gan img{
     width: 200px;
-    transform: rotate(-25deg);
+    transform: rotate(-35deg);
 }
 @keyframes diskRoute {
     0%{
@@ -104,7 +138,6 @@ export default {
 }
 .disk{
     margin-top: 65%;
-
 }
 .disk img{
     width: 200px;
@@ -114,12 +147,46 @@ export default {
 .imgShow{
     margin-top: -170px;
     margin-left: 35px;
-    
 }
 .imgShow img{
     width:130px;
     border: 0px solid #fff;
     border-radius: 65px;
-    animation: diskRoute 6s linear infinite;
+    animation: diskRoute 8s linear infinite;
+}
+
+.control{
+    position:absolute;
+    width: 100%;
+    top: 93%;
+    display: flex;
+    text-align: center;
+}
+.previous{
+    flex: 1;
+}
+.previous img{
+    width: 30px;
+}
+.play{
+    flex: 1;
+}
+.play img{
+    width: 30px;
+}
+.pause{
+    flex: 1;
+}
+.pause img{
+    margin-top: -2px;
+    margin-left: 1px;
+    width: 35px;
+}
+.next{
+    flex: 1;
+    width: 30px;
+}
+.next img{
+    width: 30px;
 }
 </style>
