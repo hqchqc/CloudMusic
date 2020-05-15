@@ -82,7 +82,7 @@ export default {
         }
     },
     created(){
-        
+        console.log('回学校啦 晚点更新！')
     }
 }
 </script>
