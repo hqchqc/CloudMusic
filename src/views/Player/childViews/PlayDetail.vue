@@ -66,7 +66,6 @@ export default {
                 return 'paused'
             }
         }
-        // 一个月没动呀   
     },
     methods:{
         pause(){
