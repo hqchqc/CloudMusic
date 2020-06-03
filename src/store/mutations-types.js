@@ -13,3 +13,6 @@ export const COLLECTED_INFO = 'collectedInfo'
 export const IS_DISPLAY = 'isDisplay'
 export const CHANGE_SHOW = 'changeShow'
 export const CHANGE_SHOW2 = 'changeShow2'
+
+export const ADDSHEET = 'addSheet'
+export const CHANGE_PLAY = 'changePlay'

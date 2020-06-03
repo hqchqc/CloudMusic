@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="tail">
-            <div class="control">
+            <div class="control" @click="preClick">
                 <div class="previous">
                     <img src="~assets/img/play/previous.svg">
                 </div>
@@ -44,10 +44,16 @@
 <script>
 import TitleBarLeft from 'components/content/titlebar/TitleBarLeft'
 import {isPause} from 'vuex'
+import {getSongsUrl} from 'network/rankItem'
 export default {
     name: 'PlayDetail',
     components:{
         TitleBarLeft
+    },
+    data(){
+        return {
+            url: ''
+        }
     },
     computed:{
         getUrl(){
@@ -78,12 +84,50 @@ export default {
             }
         },
         nextClick(){
-            console.log('next')
+            //  定义变量存放歌曲
+            let music = {},
+                songItem = {},
+                index = (this.$store.state.music.index) + 1
+            // 全局中拿到歌单
+            songItem = this.$store.state.songSheet[0][index]
+            // 获得歌曲的 url
+            getSongsUrl(this.$store.state.songSheet[0][index].id).then(res=>{
+                this.url = res.data.data[0].url
+            })
+            // 延迟一点执行 否则上面的语句拿不到 url
+            setTimeout(() => {
+                music = {
+                    index: index,
+                    songItem: songItem,
+                    url: this.url
+                }
+                // 提交此事件 改变正在播放的音乐中的内容
+                this.$store.commit('changePlay',music)
+            }, 500);
+        },
+        preClick(){
+            //  定义变量存放歌曲
+            let music = {},
+                songItem = {},
+                index = (this.$store.state.music.index) - 1
+            // 全局中拿到歌单
+            songItem = this.$store.state.songSheet[0][index]
+            // 获得歌曲的 url
+            getSongsUrl(this.$store.state.songSheet[0][index].id).then(res=>{
+                this.url = res.data.data[0].url
+            })
+            // 延迟一点执行 否则上面的语句拿不到 url
+            setTimeout(() => {
+                music = {
+                    index: index,
+                    songItem: songItem,
+                    url: this.url
+                }
+                // 提交此事件 改变正在播放的音乐中的内容
+                this.$store.commit('changePlay',music)
+            }, 500);
         }
     },
-    created(){
-        console.log('回学校啦 晚点更新！')
-    }
 }
 </script>
 

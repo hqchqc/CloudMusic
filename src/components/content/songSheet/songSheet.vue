@@ -82,6 +82,7 @@ export default {
             this.$router.back()
         },
         choose(id,index){
+            this.$store.commit('addSheet',this.SongItem)
             getSongsUrl(id).then(res=>{
                 this.url = res.data.data[0].url
             })
@@ -90,6 +91,7 @@ export default {
                 this.$store.dispatch('AddMusic',{url:this.url,songItem:this.SongItem[index],index:index}).then(res=>{
                     console.log(res)
                 })
+                
             },800)
             // 底部显示播放控件
             this.$store.commit('isShow')
@@ -118,7 +120,6 @@ export default {
                     this.SongItem.push(this.music)
                 }
                 this.coverImage = res.data.playlist.coverImgUrl
-
             })
             
         }else if(this.$route.name == '/find/'){
