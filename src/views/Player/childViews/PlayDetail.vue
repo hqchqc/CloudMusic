@@ -22,8 +22,8 @@
             </div>
         </div>
         <div class="tail">
-            <div class="control" @click="preClick">
-                <div class="previous">
+            <div class="control">
+                <div class="previous" @click="preClick">
                     <img src="~assets/img/play/previous.svg">
                 </div>
                 <div class="play" v-if="!$store.state.Pause"  @click="pause">
@@ -87,15 +87,13 @@ export default {
             //  定义变量存放歌曲
             let music = {},
                 songItem = {},
-                index = (this.$store.state.music.index) + 1
+                index = this.$store.state.music.index + 1
             // 全局中拿到歌单
             songItem = this.$store.state.songSheet[0][index]
             // 获得歌曲的 url
             getSongsUrl(this.$store.state.songSheet[0][index].id).then(res=>{
                 this.url = res.data.data[0].url
-            })
-            // 延迟一点执行 否则上面的语句拿不到 url
-            setTimeout(() => {
+
                 music = {
                     index: index,
                     songItem: songItem,
@@ -103,21 +101,19 @@ export default {
                 }
                 // 提交此事件 改变正在播放的音乐中的内容
                 this.$store.commit('changePlay',music)
-            }, 500);
+            })
         },
         preClick(){
             //  定义变量存放歌曲
             let music = {},
                 songItem = {},
-                index = (this.$store.state.music.index) - 1
+                index = this.$store.state.music.index - 1
             // 全局中拿到歌单
             songItem = this.$store.state.songSheet[0][index]
             // 获得歌曲的 url
             getSongsUrl(this.$store.state.songSheet[0][index].id).then(res=>{
                 this.url = res.data.data[0].url
-            })
-            // 延迟一点执行 否则上面的语句拿不到 url
-            setTimeout(() => {
+                
                 music = {
                     index: index,
                     songItem: songItem,
@@ -125,7 +121,8 @@ export default {
                 }
                 // 提交此事件 改变正在播放的音乐中的内容
                 this.$store.commit('changePlay',music)
-            }, 500);
+            })
+
         }
     },
 }

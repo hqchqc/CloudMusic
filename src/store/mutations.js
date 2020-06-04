@@ -50,6 +50,7 @@ export default {
     },
 
     [ADDSHEET](state,payload){
+        state.songSheet = []
         state.songSheet.push(payload)
     },
     [CHANGE_PLAY](state,payload){
