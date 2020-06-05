@@ -43,9 +43,10 @@ export default {
         height: 19px;
         border: 0.4px solid #909090;
         border-radius: 10px;
-        font-size: 12px;
+        font-size: 11px;
         font-weight: 700;
         padding: 3px;
         margin-top: 17px;
+        text-align: center;
     }
 </style>

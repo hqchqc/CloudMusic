@@ -22,6 +22,13 @@
             </div>
         </div>
         <div class="tail">
+            <div class="progress">
+                <p class="nowTime">{{this.currentTime}}</p>
+                <div class="now-progress" :style="{width:progress}"></div>
+                <div class="glo-progress" :style="{marginLeft:progress}"></div>
+                <p class="totalTime">{{this.totalTime}}</p>
+                <div class="backPro"></div>
+            </div>
             <div class="control">
                 <div class="previous" @click="preClick">
                     <img src="~assets/img/play/previous.svg">
@@ -35,7 +42,6 @@
                 <div class="next" @click="nextClick">
                     <img src="~assets/img/play/next.svg">
                 </div>
-                
             </div>
         </div>
     </div>
@@ -52,7 +58,10 @@ export default {
     },
     data(){
         return {
-            url: ''
+            url: '',
+            progress: '0%',
+            currentTime: '00:00',
+            totalTime: '00:00'
         }
     },
     computed:{
@@ -71,6 +80,19 @@ export default {
             if(!this.$store.state.Pause == true){
                 return 'paused'
             }
+        },
+        getCurrentTime(){
+             // 获得 dom 对象s
+            setInterval(()=>{
+                let audio = document.getElementById('audio')
+                return audio.currentTime
+            },500)
+            
+        },
+        getDuration(){
+             // 获得 dom 对象
+            let audio = document.getElementById('audio')
+            return audio.duration
         }
     },
     methods:{
@@ -122,9 +144,39 @@ export default {
                 // 提交此事件 改变正在播放的音乐中的内容
                 this.$store.commit('changePlay',music)
             })
-
+        },
+        // 将秒转为 分钟：秒钟
+        formatSecond(seconds){
+            let minute = Math.floor(seconds / 60)
+            let second = Math.floor(seconds % 60)
+            minute += ''
+            second += ''
+            minute = (minute.length == 1) ? '0'+minute : minute
+            second = (second.length == 1) ? '0'+second : second
+            return minute + ':' + second
         }
     },
+    mounted(){   
+        // 获得 dom 对象
+        let audio = document.getElementById('audio')
+        // 使用此函数不断执行中间代码
+        const timer = setInterval(()=>{
+            // audio 中有对应属性 单位是秒
+            // currentTime 当前播放到的时间
+            // duration 歌曲总时长
+            const numbers = audio.currentTime / audio.duration
+            this.currentTime = this.formatSecond(audio.currentTime)
+            this.totalTime = this.formatSecond(audio.duration)
+            let perNumber = (numbers * 100).toFixed(2)
+            // if(perNumber >= 100){
+            //     this.progress = 0
+            //     clearInterval(timer)
+            // }
+            perNumber += '%'
+            this.progress = perNumber
+           
+        },30)
+    }
 }
 </script>
 
@@ -229,5 +281,46 @@ export default {
 }
 .next img{
     width: 30px;
+}
+.progress{
+    position:absolute;
+    width: 100%;
+    top: 86%;
+    padding:0px 40px;
+}
+.now-progress{
+    background-color: whitesmoke;
+    height: 3px;
+}
+.glo-progress{
+    margin-top: -3.8px;
+    border: 1px solid whitesmoke;
+    width: 5px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+.backPro{
+    background-color: #ccc;
+    width: 100%;
+    height: 3px;
+    position: relative;
+    top: -4px;
+    filter:alpha(opacity=30); 
+    opacity:0.3
+}
+.nowTime{
+    color:white;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    left: 5px;
+}
+.totalTime{
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: 5px;
 }
 </style>
