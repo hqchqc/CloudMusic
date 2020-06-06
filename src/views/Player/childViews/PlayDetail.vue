@@ -1,6 +1,6 @@
 <template>
-    <div id="detail" >
-        <div class="bg">
+    <div id="detail">
+        <div class="bg" >
             <div class="nav">
                 <title-bar-left/>
                 <div class="font">
@@ -17,7 +17,7 @@
             <div class="disk"> 
                 <img src="~assets/img/play/disk.png">
             </div>
-            <div class="imgShow">
+            <div class="imgShow" @click="lric">
                 <img :src="this.$store.state.music.songItem.picUrl" :style="{webkitAnimationPlayState: this.imgShows}">
             </div>
         </div>
@@ -50,7 +50,7 @@
 <script>
 import TitleBarLeft from 'components/content/titlebar/TitleBarLeft'
 import {isPause} from 'vuex'
-import {getSongsUrl} from 'network/rankItem'
+import {getSongsUrl,getLyric} from 'network/rankItem'
 export default {
     name: 'PlayDetail',
     components:{
@@ -154,6 +154,11 @@ export default {
             minute = (minute.length == 1) ? '0'+minute : minute
             second = (second.length == 1) ? '0'+second : second
             return minute + ':' + second
+        },
+        lric(){
+            getLyric(this.$store.state.music.songItem.id).then(res=>{
+                console.log(res.data.lrc.lyric)
+            })
         }
     },
     mounted(){   

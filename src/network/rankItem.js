@@ -13,9 +13,9 @@ export function getSongsUrl(id){
     })
 }
 
-// 获得歌曲详情
-// export function getSongDetail(id){
-//     return request({
-//         url: '/song/detail?ids=' + id
-//     })
-// }
+// 获得歌词
+export function getLyric(id){
+    return request({
+        url: '/lyric?id=' + id
+    })
+}
