@@ -11,15 +11,24 @@
         </div>
         <div class="blur" :style="{backgroundImage: this.getUrl,backgroundSize:this.getSize}" ></div>
         <div class="main">
-            <div class="gan" :style="{transform:this.transform}">
-                <img src='~assets/img/play/styli.png'>
+            <div class="lyric" v-if='showLyric'>
+                <div class="content">
+                    
+                </div>
             </div>
-            <div class="disk"> 
-                <img src="~assets/img/play/disk.png">
+            <div class="lyric-close" v-else>
+                <div class="gan" :style="{transform:this.transform}">
+                    <img src='~assets/img/play/styli.png'>
+                </div>
+                <div class="disk"> 
+                    <img src="~assets/img/play/disk.png">
+                </div>
+                <div class="imgShow" @click="lric">
+                    <img :src="this.$store.state.music.songItem.picUrl" :style="{webkitAnimationPlayState: this.imgShows}">
+                </div>
             </div>
-            <div class="imgShow" @click="lric">
-                <img :src="this.$store.state.music.songItem.picUrl" :style="{webkitAnimationPlayState: this.imgShows}">
-            </div>
+            
+            
         </div>
         <div class="tail">
             <div class="progress">
@@ -51,6 +60,8 @@
 import TitleBarLeft from 'components/content/titlebar/TitleBarLeft'
 import {isPause} from 'vuex'
 import {getSongsUrl,getLyric} from 'network/rankItem'
+import BScroll from 'better-scroll'
+import Lyrics from 'lyrics.js'
 export default {
     name: 'PlayDetail',
     components:{
@@ -61,7 +72,8 @@ export default {
             url: '',
             progress: '0%',
             currentTime: '00:00',
-            totalTime: '00:00'
+            totalTime: '00:00',
+            showLyric: false
         }
     },
     computed:{
@@ -157,8 +169,22 @@ export default {
         },
         lric(){
             getLyric(this.$store.state.music.songItem.id).then(res=>{
-                console.log(res.data.lrc.lyric)
-            })
+                this.showLyric = true
+                let content = document.getElementsByClassName('content')
+                // let scroll = new BScroll(lyric)
+
+                let lrc = new Lyrics(res.data.lrc.lyric)
+
+                let lyrics = ''
+                lrc.lyrics_all.forEach(item => {
+                    console.log(item)
+                    lyrics = lyrics + item.text + '<br />'
+                });
+
+                document.getElementsByClassName('.content').innerHTML = 'lyrics'
+                // document.getcontent.innerHTML = lyrics
+
+            })  
         }
     },
     mounted(){   
@@ -217,6 +243,7 @@ export default {
 }
 .gan{
     position: absolute;
+    top: -5px;
     z-index: 1;
 }
 .gan img{
@@ -327,5 +354,15 @@ export default {
     position: absolute;
     top: -5px;
     right: 5px;
+}
+.lyric{
+    height: 500px;
+    margin-top: 80px;
+    margin-left: -20px;
+    overflow: hidden;
+    text-align: center;
+}
+.content{
+    width: 50px;
 }
 </style>
