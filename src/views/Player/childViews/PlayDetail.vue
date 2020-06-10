@@ -11,12 +11,12 @@
         </div>
         <div class="blur" :style="{backgroundImage: this.getUrl,backgroundSize:this.getSize}" ></div>
         <div class="main">
-            <div class="lyric" v-if='showLyric'>
-                <div class="content">
-                    
-                </div>
+            <div class="lyric" v-show='showLyric' @click="cLyric" ref="wrapper">
+                <pre class="content">
+                    {{this.Lyric}}
+                </pre>
             </div>
-            <div class="lyric-close" v-else>
+            <div class="lyric-close" v-show='!showLyric'>
                 <div class="gan" :style="{transform:this.transform}">
                     <img src='~assets/img/play/styli.png'>
                 </div>
@@ -73,7 +73,8 @@ export default {
             progress: '0%',
             currentTime: '00:00',
             totalTime: '00:00',
-            showLyric: false
+            showLyric: false,
+            Lyric: 'dsad'
         }
     },
     computed:{
@@ -170,21 +171,35 @@ export default {
         lric(){
             getLyric(this.$store.state.music.songItem.id).then(res=>{
                 this.showLyric = true
-                let content = document.getElementsByClassName('content')
-                // let scroll = new BScroll(lyric)
 
                 let lrc = new Lyrics(res.data.lrc.lyric)
 
-                let lyrics = ''
-                lrc.lyrics_all.forEach(item => {
-                    console.log(item)
-                    lyrics = lyrics + item.text + '<br />'
+                let lyrics = '\n'
+                lrc.lyrics_all.filter((item,index)=>{
+                    return item.text !== ''
+                }).forEach(item => {
+                    lyrics = lyrics + item.text + '\n'
                 });
 
-                document.getElementsByClassName('.content').innerHTML = 'lyrics'
-                // document.getcontent.innerHTML = lyrics
+
+                this.Lyric = lyrics
+                // console.log(lyrics)
+                this.$nextTick(()=>{
+                    this.BScroll = new BScroll(this.$refs.wrapper,{
+                        click: true,
+                    })
+                    setInterval(()=>{
+                        this.BScroll.scrollBy(0,-20,2)
+                        console.log(this.currentTime)
+                    },1000)
+                })
 
             })  
+            
+            
+        },
+        cLyric(){
+            this.showLyric = false
         }
     },
     mounted(){   
@@ -207,6 +222,9 @@ export default {
             this.progress = perNumber
            
         },30)
+
+        
+
     }
 }
 </script>
@@ -356,13 +374,18 @@ export default {
     right: 5px;
 }
 .lyric{
-    height: 500px;
+    height: 450px;
     margin-top: 80px;
-    margin-left: -20px;
+    margin-left: -35px;
     overflow: hidden;
     text-align: center;
 }
 .content{
-    width: 50px;
+   max-width: 300px;
+   font-size: 15px;
+   color: #fff;
+   font-family: '微软雅黑';
+   letter-spacing: 2px;
+   line-height: 25px;
 }
 </style>
