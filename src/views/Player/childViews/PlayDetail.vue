@@ -12,9 +12,11 @@
         <div class="blur" :style="{backgroundImage: this.getUrl,backgroundSize:this.getSize}" ></div>
         <div class="main">
             <div class="lyric" v-show='showLyric' @click="cLyric" ref="wrapper">
-                <pre class="content">
-                    {{this.Lyric}}
-                </pre>
+                <div class="content">
+                    <p v-for="(line,index) in Lyric" :key="index" :class="{'current':currentLineNum===index}" ref="lyricLine">
+                        {{line.text}}
+                    </p>
+                </div>
             </div>
             <div class="lyric-close" v-show='!showLyric'>
                 <div class="gan" :style="{transform:this.transform}">
@@ -74,7 +76,8 @@ export default {
             currentTime: '00:00',
             totalTime: '00:00',
             showLyric: false,
-            Lyric: 'dsad'
+            Lyric: {},
+            currentLineNum: 0
         }
     },
     computed:{
@@ -173,30 +176,42 @@ export default {
                 this.showLyric = true
 
                 let lrc = new Lyrics(res.data.lrc.lyric)
-
-                let lyrics = '\n'
-                lrc.lyrics_all.filter((item,index)=>{
+                this.Lyric = lrc.lyrics_all.filter((item,index)=>{
                     return item.text !== ''
-                }).forEach(item => {
-                    lyrics = lyrics + item.text + '\n'
-                });
+                })
+                
+                // 由于是动态添加的dom元素 这里需要使用 nextTick 来控制 bs 获得 dom 
+                // 这是 vue 提供的一个方法
 
-
-                this.Lyric = lyrics
-                // console.log(lyrics)
-                this.$nextTick(()=>{
-                    this.BScroll = new BScroll(this.$refs.wrapper,{
-                        click: true,
-                    })
-                    setInterval(()=>{
-                        this.BScroll.scrollBy(0,-20,2)
-                        console.log(this.currentTime)
-                    },1000)
+                this.BScroll = new BScroll(this.$refs.wrapper,{
+                    click: true,
                 })
 
+                let audio = document.getElementById('audio')
+
+                
+                setInterval(()=>{
+                    this.Lyric.forEach((item,index)=>{
+                        if(audio.currentTime >= item.timestamp){
+                            while(index+1 == this.currentLineNum){
+                                this.currentLineNum ++
+                            }
+                            this.currentLineNum = index
+                        }
+                    })
+                    
+                    // 若当前行大于7,开始滚动,以保歌词显示于中间位置  
+                    if (this.currentLineNum > 7) {  
+                        let lineEl = this.$refs.lyricLine[this.currentLineNum - 7]  
+                        // 结合better-scroll，滚动歌词  
+                        this.BScroll.scrollToElement(lineEl, 1000)  
+                    } else {  
+                        this.BScroll.scrollToElement(0, 0, 1000)  
+                    }  
+                },800)                       
+
             })  
-            
-            
+
         },
         cLyric(){
             this.showLyric = false
@@ -383,9 +398,13 @@ export default {
 .content{
    max-width: 300px;
    font-size: 15px;
-   color: #fff;
+   color:#DCDCDC;
    font-family: '微软雅黑';
    letter-spacing: 2px;
    line-height: 25px;
+}
+.current{
+    color: #fff;
+    font-weight: 900;
 }
 </style>
