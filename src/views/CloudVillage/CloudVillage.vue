@@ -6,7 +6,10 @@
 
 <script>
 export default {
-    name: 'CloudVillage'
+    name: 'CloudVillage',
+    created(){
+       this.$toast.show('Sorry，该功能暂不支持，期待后续更新嗷' + '(●"◡"●)')
+    }
 }
 </script>
 

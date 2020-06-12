@@ -237,9 +237,6 @@ export default {
             this.progress = perNumber
            
         },30)
-
-        
-
     }
 }
 </script>

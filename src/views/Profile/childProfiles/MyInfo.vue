@@ -2,7 +2,7 @@
     <div class="myInfo">
         <div class="songlist">
             <router-link to='/profile/create' class="created" active-class="active">创建歌单
-                <span style="font-size:5px" v-if="$store.state.userInfo">{{$store.state.createInfo.length}}</span>
+                <span style="font-size:5px" v-show="$store.state.userInfo">{{$store.state.createInfo.length}}</span>
             </router-link>
             <router-link to='/profile/collected' class="created" active-class="active">收藏歌单
                 <span style="font-size:5px" >{{$store.state.collectInfo.length}}</span>
