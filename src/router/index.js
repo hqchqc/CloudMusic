@@ -2,6 +2,7 @@
 // 1.导入路由对象
 import Vue from 'vue'
 import vueRouter from 'vue-router'
+// import { search } from 'core-js/fn/symbol'
 
 // 解决多次点击同一个路由报错的问题(不影响使用)
 // 原因：原因在于Vue-router在3.1之后把$router.push()方法改为了Promise。
@@ -42,6 +43,9 @@ const column = ()=>import('views/Profile/childProfiles/Column.vue')
 const mlog = ()=>import('views/Profile/childProfiles/Mlog.vue')
 
 const playDetail = ()=>import('views/Player/childViews/PlayDetail.vue')
+
+const search = ()=>import('views/Search/Search.vue')
+const singerClass = ()=>import('views/SingerClass/SingerClass.vue')
 
 // 3.1 配置路由映射
 const routes = [
@@ -150,6 +154,14 @@ const routes = [
     {
         path: '/playDetail',
         component: playDetail
+    },
+    {
+        path: '/search',
+        component: search
+    },
+    {
+        path: '/singerClass',
+        component: singerClass
     }
 ]
 

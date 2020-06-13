@@ -82,6 +82,7 @@ export default {
             this.$router.back()
         },
         choose(id,index){
+            // console.log(this.SongItem)
             this.$store.commit('addSheet',this.SongItem)
             getSongsUrl(id).then(res=>{
                 this.url = res.data.data[0].url

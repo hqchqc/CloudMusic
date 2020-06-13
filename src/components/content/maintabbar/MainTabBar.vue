@@ -9,7 +9,7 @@
           :class="{chooseItem:index===isChoose,profile:isChoose===0}">{{attr}}</div>
       </div>
       <div slot="right">
-        <img v-if="isChoose!==0" src="~assets/img/find/navbar/search.svg"/>
+        <img v-if="isChoose!==0" src="~assets/img/find/navbar/search.svg" @click="search"/>
         <img v-else src="~assets/img/common/search_white.svg"/>
       </div>
     </nav-bar>
@@ -39,7 +39,9 @@ export default {
         this.isChoose = index;
         this.$router.push(this.path[index])
       }
-      
+    },
+    search(){
+      this.$router.push('search')
     }
   }
 };
