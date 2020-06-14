@@ -47,6 +47,12 @@ const playDetail = ()=>import('views/Player/childViews/PlayDetail.vue')
 const search = ()=>import('views/Search/Search.vue')
 const singerClass = ()=>import('views/SingerClass/SingerClass.vue')
 
+const translate = ()=>import('views/SingerClass/childSingerClass/Translate')
+const europe = ()=>import('views/SingerClass/childSingerClass/Europe')
+const japan = ()=>import('views/SingerClass/childSingerClass/Japan')
+const korea = ()=>import('views/SingerClass/childSingerClass/Korea')
+const other = ()=>import('views/SingerClass/childSingerClass/Other')
+
 // 3.1 配置路由映射
 const routes = [
     {
@@ -161,7 +167,29 @@ const routes = [
     },
     {
         path: '/singerClass',
-        component: singerClass
+        component: singerClass,
+        children: [
+            {
+                path: 'translate',     // 歌手分类 -> 华语
+                component: translate
+            },
+            {
+                path: 'europe',  // 歌手分类 -> 欧美
+                component: europe
+            },
+            {
+                path: 'japan',  // 歌手分类 -> 日本
+                component: japan
+            },
+            {
+                path: 'korea',  // 歌手分类 -> 韩国
+                component: korea
+            },
+            {
+                path: 'other',  // 歌手分类 -> 其它
+                component: other
+            },
+        ]
     }
 ]
 

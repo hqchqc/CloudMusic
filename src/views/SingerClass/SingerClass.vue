@@ -2,11 +2,11 @@
     <div id="singerClass">
         <title-bar-left :font='font' class="bar"/>
         <div class="class">
-            <a href="#">华语</a>
-            <a>欧美</a>
-            <a>日本</a>
-            <a>韩国</a>
-            <a>其他</a>
+            <router-link to="/singerClass/translate">华语</router-link>
+            <router-link to="/singerClass/europe">欧美</router-link>
+            <router-link to="/singerClass/japan">日本</router-link>
+            <router-link to="/singerClass/korea">韩国</router-link>
+            <router-link to="/singerClass/other">其它</router-link>
             <br/>
             <a>男</a>
             <a>女</a>
@@ -15,6 +15,7 @@
         <div class="hotSinger">
             <p>热门歌手</p>
         </div>
+        <router-view></router-view>
         <div class="list">
             <ul>
                 <li v-for="(item,index) in data" :key="index" class="listItem">

@@ -60,42 +60,43 @@ export default {
     },
     methods:{
         goBack(){
-            this.$router.go(-1)
+            this.$router.push('find')
         },
         goSinger(){
             this.$router.push('singerClass')
         },
-        // choose(id,index){
-        //     getSing(this.list[index].searchWord).then(res=>{
-        //         this.music = res.data.result.songs
-        //         this.$store.commit('addSheet',this.music)
+        choose(id,index){
+            getSing(this.list[index].searchWord).then(res=>{
+                this.music = res.data.result.songs
+                console.log(this.music)
+                // this.$store.commit('addSheet',this.music)
 
-        //         this.getUrl()
+                // this.getUrl()
 
                 
                 
-        //         setTimeout(()=>{
-        //             this.$store.dispatch('AddMusic',{url:this.url[index],songItem:this.music[index],index:index}).then(res=>{
-        //                 console.log(res)
-        //             })
+                // setTimeout(()=>{
+                //     this.$store.dispatch('AddMusic',{url:this.url[index],songItem:this.music[index],index:index}).then(res=>{
+                //         console.log(res)
+                //     })
                     
-        //         },800)
+                // },800)
 
-        //         // 底部显示播放控件
-        //         this.$store.commit('isShow')
-        //         // 改变暂停和播放图标
-        //         if(!this.$store.state.Pause){
-        //             this.$store.commit('isPause')
-        //         }
-        //     }) 
-        // },
-        // getUrl(){
-        //     this.music.forEach((item,index)=>{
-        //         getSongsUrl(item.id).then(res=>{
-        //             this.url.push(res.data.data[0].url)
-        //         })
-        //     })
-        // }
+                // // 底部显示播放控件
+                // this.$store.commit('isShow')
+                // // 改变暂停和播放图标
+                // if(!this.$store.state.Pause){
+                //     this.$store.commit('isPause')
+                // }
+            }) 
+        },
+        getUrl(){
+            this.music.forEach((item,index)=>{
+                getSongsUrl(item.id).then(res=>{
+                    this.url.push(res.data.data[0].url)
+                })
+            })
+        }
     }
 }
 </script>

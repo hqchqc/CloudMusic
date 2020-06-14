@@ -82,7 +82,6 @@ export default {
             this.$router.back()
         },
         choose(id,index){
-            // console.log(this.SongItem)
             this.$store.commit('addSheet',this.SongItem)
             getSongsUrl(id).then(res=>{
                 this.url = res.data.data[0].url
@@ -90,7 +89,7 @@ export default {
             // 这里要设置延时执行否则第一次点击的时候拿不到歌曲链接
             setTimeout(()=>{
                 this.$store.dispatch('AddMusic',{url:this.url,songItem:this.SongItem[index],index:index}).then(res=>{
-                    console.log(res)
+                    // console.log(res)
                 })
                 
             },800)
