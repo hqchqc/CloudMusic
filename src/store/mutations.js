@@ -2,6 +2,7 @@ import {GET_MUSIC,IS_SHOW,IS_PAUSE,IS_DISPLAY,CHANGE_SHOW,CHANGE_SHOW2} from './
 import {RECOMMEND_CLICK,WORLD_CLICK,MORE_CLICK} from './mutations-types'
 import {LOGIN_AFTER,CREATE_INFO,COLLECTED_INFO} from './mutations-types'
 import {ADDSHEET,CHANGE_PLAY} from './mutations-types'
+import {SINGERITEM} from './mutations-types'
 export default {
     [GET_MUSIC](state,payload){
         var index = payload.index
@@ -55,5 +56,10 @@ export default {
     },
     [CHANGE_PLAY](state,payload){
         state.music = payload
+    },
+
+    [SINGERITEM](state,payload){
+        state.singerClass = []
+        state.singerClass = payload
     }
-}
+}   

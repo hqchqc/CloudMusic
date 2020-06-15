@@ -18,6 +18,8 @@ const state = {
 
     mainShow: true,     //导航栏是否显示
     songSheet: [],       //歌单
+
+    singerClass: [],     // 歌手分类
 }
 
 const store = new Vuex.Store({

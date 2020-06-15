@@ -1,18 +1,25 @@
 <template>
-  <div>
-    <p>这是Translate</p>
-    <h2>dsa </h2>
-  </div>
   
 </template>
 
 <script>
 import {getCategory} from 'network/singerClass'
+import ClassList from 'components/content/classList/ClassList'
 export default {
     name: 'Translate',
+    data(){
+      return{
+        data: []
+      }
+    },
+    components:{
+      ClassList
+    },
     created(){
       getCategory(1,7).then(res=>{
-        console.log(res)
+        this.data = res.data.artists
+        // this.$bus.$emit('itemListLoad',this.data)
+        this.$store.commit('singerItem',this.data)
       })      
     }
 }

@@ -8,7 +8,12 @@
             <router-link to="/singerClass/korea">韩国</router-link>
             <router-link to="/singerClass/other">其它</router-link>
             <br/>
-            <a>男</a>
+            <!-- <router-link to="/singerClass/other">其它</router-link>
+            <router-link to="/singerClass/other">其它</router-link>
+            <router-link to="/singerClass/other">其它</router-link> -->
+            <!-- <router-link to="/singerClass/translate/male">男</router-link> -->
+
+            <!-- <a>男</a> -->
             <a>女</a>
             <a>乐队/组合</a>
         </div>
@@ -16,30 +21,19 @@
             <p>热门歌手</p>
         </div>
         <router-view></router-view>
-        <div class="list">
-            <ul>
-                <li v-for="(item,index) in data" :key="index" class="listItem">
-                    <img :src="item.picUrl" />
-                    <span>{{item.name}}</span>
-                    <div class="head">
-                        <img src='~assets/img/singer/head.svg'/>
-                    </div>
-                    <div class="follow" @click="followMe">
-                        <p>+ 关 注</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <ClassList :data='data'/>
     </div>
 </template>
 
 <script>
 import TitleBarLeft from 'components/content/titlebar/TitleBarLeft'
+import ClassList from 'components/content/classList/ClassList'
 import {getSingerClass} from 'network/singerClass'
 export default {
     name: 'SingerClass',
     components:{
-        TitleBarLeft
+        TitleBarLeft,
+        ClassList
     },
     data(){
         return {
@@ -47,16 +41,13 @@ export default {
             data: []
         }
     },
-    methods:{
-        followMe(){
-            console.log('pick me pick me')
-        }
-    },
+
     created(){
         getSingerClass().then(res=>{
             this.data = res.data.artists
+            this.$store.commit('singerItem',this.data)
         })
-    }
+    },
 }
 </script>
 
@@ -80,42 +71,5 @@ export default {
     padding: 8px;
     padding-left: 10px;
 }
-ul li{
-    list-style: none;
-}
-.listItem{
-    margin-left: 10px;
-    margin-top: 5px;
-    font-size: 12px;
-    display: flex;
-}
-.listItem img{
-    width: 50px;
-    height: 50px;
-    border: 0px solid #fff;
-    border-radius: 25px;
-    margin-top: 5px;
-}
-.listItem span{
-    line-height: 57px;
-    margin-left: 10px;
-}
-.head{
-    flex: 1;
-}
-.head img{
-    width: 16px;
-    margin-left: 10px;
-}
-.follow{
-    height: 20px;
-    width: 60px;
-    text-align: center;
-    line-height: 20px;
-    border-radius: 15px;
-    color: red;
-    border: 1px solid red;
-    margin-right: 10px;
-    margin-top: 18px;
-}
+
 </style>

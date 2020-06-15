@@ -170,8 +170,14 @@ const routes = [
         component: singerClass,
         children: [
             {
-                path: 'translate',     // 歌手分类 -> 华语
-                component: translate
+                path: '/:translates/male',     // 歌手分类 -> 华语
+                component: translate,
+                // children:[
+                //     {
+                //         path: 'male',
+                //         component: translate    // 华语 -> 男
+                //     }
+                // ]
             },
             {
                 path: 'europe',  // 歌手分类 -> 欧美

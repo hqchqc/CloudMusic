@@ -16,3 +16,5 @@ export const CHANGE_SHOW2 = 'changeShow2'
 
 export const ADDSHEET = 'addSheet'
 export const CHANGE_PLAY = 'changePlay'
+
+export const SINGERITEM = 'singerItem'
