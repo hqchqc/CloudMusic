@@ -12,7 +12,8 @@
             <router-link to="/singerClass/other">其它</router-link>
             <router-link to="/singerClass/other">其它</router-link> -->
             <!-- <router-link to="/singerClass/translate/male">男</router-link> -->
-
+<a>男</a>
+            <a>女</a>
             <a>男</a>
             <a>女</a>
             <a>乐队/组合</a>
