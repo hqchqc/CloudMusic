@@ -9,9 +9,6 @@
             <router-link to="/singerClass/other">其它</router-link>
             <br/>
             <!-- <router-link to="/singerClass/other">其它</router-link>
-            <router-link to="/singerClass/other">其它</router-link>
-            <router-link to="/singerClass/other">其它</router-link>
-            <router-link to="/singerClass/other">其它</router-link>
             <router-link to="/singerClass/other">其它</router-link> -->
             <!-- <router-link to="/singerClass/translate/male">男</router-link> -->
          
@@ -38,6 +35,7 @@ export default {
     components:{
         TitleBarLeft,
         ClassList
+        //的
     },
     data(){
         return {
