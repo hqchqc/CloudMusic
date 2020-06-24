@@ -35,7 +35,6 @@ export default {
     components:{
         TitleBarLeft,
         ClassList
-        //的
     },
     data(){
         return {
