@@ -170,31 +170,80 @@ const routes = [
         component: singerClass,
         children: [
             {
-                path: '/:translates/male',     // 歌手分类 -> 华语
+                path: 'translate',     // 歌手分类 -> 华语
                 component: translate,
-                // children:[
-                //     {
-                //         path: 'male',
-                //         component: translate    // 华语 -> 男
-                //     }
-                // ]
+                children:[
+                    {
+                        path: 'male',      // 华语 -> 男
+                    },
+                    {
+                        path: 'female',    // 华语 -> 女
+                    },
+                    {
+                        path: 'others',     // 华语 -> 其它
+                    }
+                ]
             },
             {
                 path: 'europe',  // 歌手分类 -> 欧美
-                component: europe
+                component: europe,
+                children:[
+                    {
+                        path: 'male',      // 欧美 -> 男
+                    },
+                    {
+                        path: 'female',    // 欧美 -> 女
+                    },
+                    {
+                        path: 'others',     // 欧美 -> 其它
+                    }
+                ]
             },
             {
-                path: 'japan',  // 歌手分类 -> 日本
-                component: japan
+                path: 'japan',  // 歌手分类 -> 欧美
+                component: japan,
+                children:[
+                    {
+                        path: 'male',      // 欧美 -> 男
+                    },
+                    {
+                        path: 'female',    // 欧美 -> 女
+                    },
+                    {
+                        path: 'others',     // 欧美 -> 其它
+                    }
+                ]
             },
             {
-                path: 'korea',  // 歌手分类 -> 韩国
-                component: korea
+                path: 'korea',  // 歌手分类 -> 欧美
+                component: korea,
+                children:[
+                    {
+                        path: 'male',      // 欧美 -> 男
+                    },
+                    {
+                        path: 'female',    // 欧美 -> 女
+                    },
+                    {
+                        path: 'others',     // 欧美 -> 其它
+                    }
+                ]
             },
             {
                 path: 'other',  // 歌手分类 -> 其它
-                component: other
-            },
+                component: other,
+                children:[
+                    {
+                        path: 'male',      // 欧美 -> 男
+                    },
+                    {
+                        path: 'female',    // 欧美 -> 女
+                    },
+                    {
+                        path: 'others',     // 欧美 -> 其它
+                    }
+                ]
+            }
         ]
     }
 ]
