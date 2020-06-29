@@ -47,11 +47,11 @@ const playDetail = ()=>import('views/Player/childViews/PlayDetail.vue')
 const search = ()=>import('views/Search/Search.vue')
 const singerClass = ()=>import('views/SingerClass/SingerClass.vue')
 
-const translate = ()=>import('views/SingerClass/childSingerClass/Translate')
-const europe = ()=>import('views/SingerClass/childSingerClass/Europe')
-const japan = ()=>import('views/SingerClass/childSingerClass/Japan')
-const korea = ()=>import('views/SingerClass/childSingerClass/Korea')
-const other = ()=>import('views/SingerClass/childSingerClass/Other')
+// const translate = ()=>import('views/SingerClass/childSingerClass/Translate')
+// const europe = ()=>import('views/SingerClass/childSingerClass/Europe')
+// const japan = ()=>import('views/SingerClass/childSingerClass/Japan')
+// const korea = ()=>import('views/SingerClass/childSingerClass/Korea')
+// const other = ()=>import('views/SingerClass/childSingerClass/Other')
 
 // 3.1 配置路由映射
 const routes = [
@@ -171,7 +171,7 @@ const routes = [
         children: [
             {
                 path: 'translate',     // 歌手分类 -> 华语
-                component: translate,
+ //               component: translate,
                 children:[
                     {
                         path: 'male',      // 华语 -> 男
@@ -186,7 +186,7 @@ const routes = [
             },
             {
                 path: 'europe',  // 歌手分类 -> 欧美
-                component: europe,
+                //component: europe,
                 children:[
                     {
                         path: 'male',      // 欧美 -> 男
@@ -201,7 +201,7 @@ const routes = [
             },
             {
                 path: 'japan',  // 歌手分类 -> 欧美
-                component: japan,
+ //               component: japan,
                 children:[
                     {
                         path: 'male',      // 欧美 -> 男
@@ -216,7 +216,7 @@ const routes = [
             },
             {
                 path: 'korea',  // 歌手分类 -> 欧美
-                component: korea,
+//                component: korea,
                 children:[
                     {
                         path: 'male',      // 欧美 -> 男
@@ -231,16 +231,16 @@ const routes = [
             },
             {
                 path: 'other',  // 歌手分类 -> 其它
-                component: other,
+//                component: other,
                 children:[
                     {
-                        path: 'male',      // 欧美 -> 男
+                        path: 'male',      // 其它 -> 男
                     },
                     {
-                        path: 'female',    // 欧美 -> 女
+                        path: 'female',    // 其它 -> 女
                     },
                     {
-                        path: 'others',     // 欧美 -> 其它
+                        path: 'others',     // 其它 -> 其它
                     }
                 ]
             }

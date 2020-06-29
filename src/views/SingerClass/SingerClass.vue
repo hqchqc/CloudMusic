@@ -7,11 +7,10 @@
             <router-link to="/singerClass/japan">日本</router-link>
             <router-link to="/singerClass/korea">韩国</router-link>
             <router-link to="/singerClass/other">其它</router-link>
-
             <br />
-            <a @click="gotoMale">男</a>
-            <a @click="gotoFemale">女</a>
-            <a @click="gotoOthers">其它</a>
+            <a @click="gotoMale" :class="{choose:this.show[0]}">男</a>
+            <a @click="gotoFemale" :class="{choose:this.show[1]}">女</a>
+            <a @click="gotoOthers" :class="{choose:this.show[2]}">其它</a>
         </div>
         <div class="hotSinger">
             <p>热门歌手</p>
@@ -33,7 +32,9 @@ export default {
     },
     methods:{
         gotoMale(){
-            console.log(1111)
+            this.show[0] = true
+            this.show[1] = false
+            this.show[2] = false
             if(this.$route.path.includes('translate')){
                 getCategory(1,7).then(res=>{
                     this.data = res.data.artists
@@ -73,7 +74,9 @@ export default {
             }
         },
         gotoFemale(){
-            console.log(22)
+            this.show[0] = false
+            this.show[1] = true
+            this.show[2] = false
             if(this.$route.path.includes('translate')){
                 getCategory(2,7).then(res=>{
                     this.data = res.data.artists
@@ -113,7 +116,9 @@ export default {
             }
         },
         gotoOthers(){
-            console.log(33)
+            this.show[0] = false
+            this.show[1] = false
+            this.show[2] = true
             if(this.$route.path.includes('translate')){
                 getCategory(3,7).then(res=>{
                     this.data = res.data.artists
@@ -156,7 +161,8 @@ export default {
     data(){
         return {
             font: '歌手分类',
-            data: []
+            data: [],
+            show: [false,false,false]
         }
     },
 
@@ -189,5 +195,13 @@ export default {
     padding: 8px;
     padding-left: 10px;
 }
-
+.router-link-active{
+    color: crimson;
+}
+.choose{
+    color: crimson;
+}
+/* .chooses{
+    color: crimson;
+} */
 </style>
