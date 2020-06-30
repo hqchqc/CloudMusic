@@ -201,7 +201,6 @@ const routes = [
             },
             {
                 path: 'japan',  // 歌手分类 -> 欧美
- //               component: japan,
                 children:[
                     {
                         path: 'male',      // 欧美 -> 男

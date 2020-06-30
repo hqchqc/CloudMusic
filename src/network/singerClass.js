@@ -19,6 +19,6 @@ export function getSingerClass(){
 // initial: 按首字母索引查找参数
 export function getCategory(type,area){
     return request({
-        url: '/artist/list?initial=-1&type=' + type + '&area=' + area
+        url: '/artist/list?type=' + type + '&area=' + area
     })
 } 
