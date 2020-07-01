@@ -3,6 +3,10 @@
         <radio-nav-bar class="radioNav"/>
         <radio-swiper :banner='banner'/>
         <radio-recommend/>
+        <div class="none">
+            <p>没有内容啦！(●'◡'●)</p>
+        </div>
+        
     </div>
 </template>
 
@@ -37,5 +41,9 @@ export default {
         position: relative;
         margin-top: -43px;
         background-color:#fff;
+    }
+    .none{
+        text-align: center;
+        margin-top: 150px;
     }
 </style>

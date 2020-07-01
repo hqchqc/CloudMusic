@@ -26,24 +26,28 @@ export default {
             collectInfo: {}
         }
     },
-    created(){
-        getCreate(JSON.parse(this.$store.state.userInfo).userId).then(res=>{
-            var detail = res.data.playlist
-            var userName = JSON.parse(this.$store.state.userInfo).userName
-            for(var i=1; i<detail.length; i++){
-                if(detail[i].creator.nickname == userName){
-                    this.createInfo = {listId:detail[i].id,listName:detail[i].name,listPic:detail[i].coverImgUrl,
-                                        listCount:detail[i].trackCount}
-                    this.userBox.push(this.createInfo)
-                }else if(detail[i].creator.nickname !== userName){
-                    this.collectInfo = {listId:detail[i].id,listName:detail[i].name,listPic:detail[i].coverImgUrl,
-                                        listCount:detail[i].trackCount}
-                    this.userContent.push(this.collectInfo)
+    mounted(){
+        if(Object.keys(this.$store.state.userInfo).length != 0){
+            let test = this.$store.state.userInfo
+            getCreate(test.userId).then(res=>{
+                var detail = res.data.playlist
+                var userName = this.$store.state.userInfo.userName
+                for(var i=1; i<detail.length; i++){
+                    if(detail[i].creator.nickname == userName){
+                        this.createInfo = {listId:detail[i].id,listName:detail[i].name,listPic:detail[i].coverImgUrl,
+                                            listCount:detail[i].trackCount}
+                        this.userBox.push(this.createInfo)  
+                    }else if(detail[i].creator.nickname !== userName){
+                        this.collectInfo = {listId:detail[i].id,listName:detail[i].name,listPic:detail[i].coverImgUrl,
+                                            listCount:detail[i].trackCount}
+                        this.userContent.push(this.collectInfo)
+                    }
                 }
-            }
-            this.$store.commit('createInfo',this.userBox)
-            this.$store.commit('collectedInfo',this.userContent)
-        })
+                this.$store.commit('createInfo',this.userBox)
+                this.$store.commit('collectedInfo',this.userContent)
+            })
+        }
+        
     }
 }
 </script>

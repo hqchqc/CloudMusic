@@ -1,6 +1,6 @@
 <template>
     <div>
-        <p>recommend</p>
+        <p>暂无内容！</p>
     </div>
 </template>
 

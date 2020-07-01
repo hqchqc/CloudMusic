@@ -32,7 +32,6 @@ export default {
   },
   methods: {
     itemClick(index) {
-      console.log(index);
       if(index == 2){
         this.$toast.show('Sorry，该功能暂不支持，期待后续更新嗷' + '(●"◡"●)')
       }else{

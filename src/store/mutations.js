@@ -11,7 +11,9 @@ export default {
         state.music = {index,url,songItem}
     },
     [IS_SHOW](state){
-        state.show = true
+        if(state.songSheet.length != 0){
+            state.show = true
+        }
     },
     [IS_PAUSE](state){
         state.Pause = !state.Pause
@@ -29,7 +31,6 @@ export default {
     },
 
     [LOGIN_AFTER](state,payload){
-        console.log(payload)
         localStorage.setItem('userInfo',JSON.stringify(payload)) //将传递的数据先保存到localstorage中
         state.userInfo = payload
     },

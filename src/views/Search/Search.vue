@@ -68,7 +68,6 @@ export default {
         choose(id,index){
             getSing(this.list[index].searchWord).then(res=>{
                 this.music = res.data.result.songs
-                console.log(this.music)
                 // this.$store.commit('addSheet',this.music)
 
                 // this.getUrl()

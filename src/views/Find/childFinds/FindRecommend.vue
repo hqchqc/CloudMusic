@@ -28,7 +28,13 @@ export default {
     },
     methods:{
         itemClick(index){
-            this.$router.push(this.recommend[index])
+            // this.$toast.show('暂无内容！')
+            
+            if(index == 0 || index == 1 || index == 4){
+                this.$toast.show('暂无内容！')
+            }else{
+                this.$router.push(this.recommend[index])
+            }
         }
     }
 }

@@ -66,7 +66,7 @@ export default {
                     this.UserInfo = {userName: res.data.profile.nickname,userHead:res.data.profile.avatarUrl,
                     userId:res.data.profile.userId}
                     this.$store.commit('loginAfter',this.UserInfo)
-                    this.$router.push('/profile')
+                    this.$router.push('/profile/create')
 
                    
 
