@@ -3,7 +3,7 @@
         <div class="coverImg">
             <div v-for="(attr,index) in userBox" :key="index" class="detail">
                 <div class="content">
-                    <img :src="attr.listPic">
+                    <img v-lazy="attr.listPic">
                     <div class="con-left"> 
                         <p class="left-top">{{attr.listName}}</p>
                         <p class="left-bottom">{{attr.listCount}}首</p>
@@ -29,9 +29,12 @@ export default {
     mounted(){
         if(Object.keys(this.$store.state.userInfo).length != 0){
             let test = this.$store.state.userInfo
+            if(test.constructor === String){
+                test = JSON.parse(test)
+            }
             getCreate(test.userId).then(res=>{
                 var detail = res.data.playlist
-                var userName = this.$store.state.userInfo.userName
+                var userName = test.userName
                 for(var i=1; i<detail.length; i++){
                     if(detail[i].creator.nickname == userName){
                         this.createInfo = {listId:detail[i].id,listName:detail[i].name,listPic:detail[i].coverImgUrl,

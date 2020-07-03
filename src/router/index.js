@@ -250,7 +250,7 @@ const routes = [
 // 3.创建路由实例
 const router = new vueRouter({
     routes,
-    mode: 'history'
+    mode: 'hash'
 })
 
 // 4.导出路由实例

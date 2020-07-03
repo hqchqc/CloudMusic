@@ -15,7 +15,7 @@
             <div class="content">
                 <div class="box">
                     <div v-for="(attr,index) in myAlbum" :key="index" class="img">
-                        <img :src="attr.imgUrl">
+                        <img v-lazy="attr.imgUrl">
                         <div class="detail">
                             <span>{{attr.name}}</span><br/>
                             <span class="singer">{{attr.singer}}</span>

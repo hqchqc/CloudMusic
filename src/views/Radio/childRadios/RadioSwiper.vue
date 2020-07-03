@@ -2,7 +2,7 @@
     <div class="radioSwiper">
         <swiper>
             <swiper-item v-for="(item,index) in banner" :key="index">
-                <img :src="item.pic">   
+                <img v-lazy="item.pic">   
             </swiper-item>
         </swiper>
     </div>

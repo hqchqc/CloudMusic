@@ -1,7 +1,7 @@
 <template>
     <div class="listItem">
         <div class="pic">
-            <img :src="list.Url">
+            <img v-lazy="list.Url">
             <span class="Frequency">{{list.Frequency}}</span>
         </div>
         <div class="content">
