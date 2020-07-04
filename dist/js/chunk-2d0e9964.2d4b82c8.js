@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0e9964"],{"8dbd":function(e,t,n){"use strict";n.r(t);var r=function(){var e=this,t=e.$createElement;e._self._c;return e._m(0)},c=[function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",[n("p",[e._v("我是云村")])])}],a={name:"CloudVillage",created:function(){this.$toast.show('Sorry，该功能暂不支持，期待后续更新嗷(●"◡"●)')}},o=a,s=n("2877"),u=Object(s["a"])(o,r,c,!1,null,"7e6241de",null);t["default"]=u.exports}}]);
+//# sourceMappingURL=chunk-2d0e9964.2d4b82c8.js.map
