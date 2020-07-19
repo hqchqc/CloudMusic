@@ -11,9 +11,23 @@
 
 <b>欢迎各位多多Star,Issues</b><br>
     1. 您的Star,是我不断更新维护的动力！！<br>
-    2. 若在使用过程中，存在某些问题，欢迎Issues<br>
+        2. 若在使用过程中，存在某些问题，欢迎Issues<br>
 
 ## 示例效果图
+
+![1](C:\Users\hqc\Desktop\1.png)
+
+![2](C:\Users\hqc\Desktop\2.png)
+
+![3](C:\Users\hqc\Desktop\3.png)
+
+![4](C:\Users\hqc\Desktop\4.png)
+
+![5](C:\Users\hqc\Desktop\5.png)
+
+![6](C:\Users\hqc\Desktop\6.png)
+
+![7](C:\Users\hqc\Desktop\7.png)
 
 ## 界面、功能模块介绍
 
