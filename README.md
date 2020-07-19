@@ -15,7 +15,7 @@
 
 ## 示例效果图
 
-![1](C:\Users\hqc\Desktop\1.png)
+![1](./assets/img/readme/1.png)
 
 ![2](C:\Users\hqc\Desktop\2.png)
 
@@ -28,8 +28,6 @@
 ![6](C:\Users\hqc\Desktop\6.png)
 
 ![7](C:\Users\hqc\Desktop\7.png)
-
-## 界面、功能模块介绍
 
 ## 启动项目
 1. clone本项目到本地
