@@ -15,19 +15,19 @@
 
 ## 示例效果图
 
-![1](./assets/img/readme/1.png)
+![1](https://github.com/hqchqc/CloudMusic/tree/master/src/assets/img/readme/1.png)
 
-![2](C:\Users\hqc\Desktop\2.png)
+![2](https://github.com/hqchqc/CloudMusic/tree/master/src/assets/img/readme/2.png)
 
-![3](C:\Users\hqc\Desktop\3.png)
+![3](https://github.com/hqchqc/CloudMusic/tree/master/src/assets/img/readme/3.png)
 
-![4](C:\Users\hqc\Desktop\4.png)
+![4](https://github.com/hqchqc/CloudMusic/tree/master/src/assets/img/readme/4.png)
 
-![5](C:\Users\hqc\Desktop\5.png)
+![5](https://github.com/hqchqc/CloudMusic/tree/master/src/assets/img/readme/5.png)
 
-![6](C:\Users\hqc\Desktop\6.png)
+![6](https://github.com/hqchqc/CloudMusic/tree/master/src/assets/img/readme/6.png)
 
-![7](C:\Users\hqc\Desktop\7.png)
+![7](https://github.com/hqchqc/CloudMusic/tree/master/src/assets/img/readme/7.png)
 
 ## 启动项目
 1. clone本项目到本地
