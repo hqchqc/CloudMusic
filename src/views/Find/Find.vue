@@ -4,7 +4,7 @@
         <find-recommend/>
         <!-- <find-welcome/> -->
         <recommend :recommendList='recommendList' :font_left='getContent'/>
-        <song-recommend :songList='songList' :loading = 'loading' :font_left='getSongContent'/>
+        <!-- <song-recommend :songList='songList' :loading = 'loading' :font_left='getSongContent'/> -->
         <recommend :recommendList='ActionrecommendList' :font_left='getActionContent'/>
         <recommend :recommendList='RadioRecommendList' :font_left='getRadioContent'  :class="{active: $store.state.show}"/>
     </div>
@@ -65,6 +65,7 @@ export default {
         })
         // 3.推荐民谣歌单的歌曲
         getRecommendSong().then(res=>{
+            // console.log(res.data.playlist.tracks)
             var list = {}
             var data = res.data.playlist.tracks.slice(0,10)
             for(var attr of data){
@@ -72,6 +73,7 @@ export default {
                 this.songList.push(list)
             }
             this.loading = true
+            // console.log(this.songList);
         })
         // 4.场景推荐的歌单
         getActionRecommend().then(res=>{

@@ -46,7 +46,7 @@ export default {
         officialClick(index){
             this.$router.push('/rank/' + this.idx[index])
         }
-    },
+    }
 }
 </script>
 

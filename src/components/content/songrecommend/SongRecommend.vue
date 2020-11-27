@@ -17,6 +17,7 @@
                 <ul>
                     <li v-for="attr in 3" :key="attr">
                         <div class="pic">
+                            <!-- <p>{{songList[attr].picUrl}}</p> -->
                             <img :src="songList[attr].picUrl">
                         </div>                   
                         <div class="font">

@@ -108,13 +108,15 @@ export default {
         // 获取歌曲列表数据
         if(this.$route.name == '/rank/'){
             getSongItem(this.idx).then(res=>{
-                for(var attr of res.data.playlist.tracks){
+                
+                for(var attr of res.data.playlist.trackIds){
+                    
                     this.picUrl = attr.al.picUrl    // 图片封面
                     this.songName = attr.name       // 歌曲名称
                     this.alia = attr.alia[0]        // 歌曲名称后面对应的  xxx主题曲
                     this.id = attr.id               // 歌曲ID
                     this.singerName = attr.ar[0].name   // 歌手名称
-                    this.zjName = attr.al.name            // 专辑名称
+                    this.zjName = attr.al.name            // 专辑名称   
                     this.music = {picUrl: this.picUrl, songName: this.songName, alia: this.alia==null?'':this.alia,
                                 id: this.id, singerName: this.singerName, zjName: this.zjName}
                     this.SongItem.push(this.music)

@@ -39,7 +39,7 @@ export default {
         margin: 0px 10px;
     }
     .top_right{
-        width: 55px;
+        width: 60px;
         height: 19px;
         border: 0.4px solid #909090;
         border-radius: 10px;
